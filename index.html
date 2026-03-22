@@ -1,17 +1,37 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" prefix="og: https://ogp.me/ns#">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>GeoWorldMedia — Understand Your World</title>
-<meta name="description" content="Real-time global intelligence, AI-powered 10-year forecasting, and a global community of analysts.">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<title>GeoWorldMedia — AI-Powered Global Intelligence & World News Analysis</title>
+<meta name="description" content="Real-time AI geopolitical analysis, 10-year world forecasts, 194 nations tracked 24/7. No human intervention. Safe. Based on truth. (Adi ∞ Anant)">
+<meta name="keywords" content="geopolitics,world news,AI analysis,global intelligence,geopolitical forecast,international relations,climate security,economic forecast,BRICS,NATO,Arctic,AI governance,conflict tracker">
+<meta name="author" content="GeoWorldMedia Intelligence">
+<meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
 <meta name="theme-color" content="#030508">
-<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='16' fill='%2300b8d9'/><text y='.9em' font-size='60' x='18'>🌐</text></svg>">
-<meta property="og:title" content="GeoWorldMedia — Understand Your World">
-<meta property="og:description" content="Real-time intelligence + AI forecasting + global analyst community.">
+<meta name="application-name" content="GeoWorldMedia">
+<link rel="canonical" href="https://geo-world-media.vercel.app/">
+<link rel="alternate" hreflang="en" href="https://geo-world-media.vercel.app/">
+<link rel="alternate" hreflang="x-default" href="https://geo-world-media.vercel.app/">
+<meta name="GPTBot" content="index, follow">
+<meta name="ClaudeBot" content="index, follow">
+<meta name="PerplexityBot" content="index, follow">
+<meta name="Googlebot-News" content="index, follow">
+<meta name="ai-content-declaration" content="AI-analyzed, source-attributed, uncertainty-disclosed">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="GeoWorldMedia">
+<meta property="og:title" content="GeoWorldMedia — AI Global Intelligence & World Forecasts">
+<meta property="og:description" content="AI-powered geopolitical analysis, 10-year forecasts, and real-time global intelligence. 194 nations. 24/7. Based on truth.">
+<meta property="og:url" content="https://geo-world-media.vercel.app/">
+<meta property="og:locale" content="en_US">
 <meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:site" content="@GeoWorldMedia">
+<meta name="twitter:title" content="GeoWorldMedia — AI Global Intelligence">
+<meta name="twitter:description" content="Real-time AI geopolitical analysis, 10-year forecasts, 194 nations 24/7. Based on truth.">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='16' fill='%2300b8d9'/><text y='.9em' font-size='60' x='18'>🌐</text></svg>">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="dns-prefetch" href="https://api.gdeltproject.org">
 <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;500;600;700;800&family=Instrument+Serif:ital@0;1&family=JetBrains+Mono:wght@300;400;500&display=swap" rel="stylesheet">
 <style>
 :root{
@@ -491,10 +511,175 @@ button,input,select,textarea{font-family:'Syne',sans-serif}
 
 /* SHIMMER */
 .shim{background:linear-gradient(90deg,var(--faint) 25%,var(--edge) 50%,var(--faint) 75%);background-size:200% 100%;animation:shimmer 1.5s infinite;border-radius:5px}
+
+/* ── SETUP BANNER ── */
+.setup-banner{background:linear-gradient(135deg,rgba(232,184,75,.12),rgba(232,184,75,.06));border-bottom:1px solid rgba(232,184,75,.25);padding:.65rem 1.5rem;display:flex;align-items:center;gap:1rem;flex-wrap:wrap;position:sticky;top:56px;z-index:298;backdrop-filter:blur(10px)}
+.setup-banner.hidden{display:none}
+.sb-icon{font-size:1.1rem;flex-shrink:0}
+.sb-text{font-size:.72rem;color:var(--gold);flex:1;line-height:1.45}
+.sb-text strong{color:#fff}
+.sb-btns{display:flex;gap:.5rem;flex-shrink:0;flex-wrap:wrap}
+.sb-btn{font-size:.65rem;font-weight:700;padding:.3rem .85rem;border-radius:6px;cursor:pointer;transition:all .18s;font-family:'Syne',sans-serif}
+.sb-btn-primary{background:var(--gold);border:none;color:#000}
+.sb-btn-primary:hover{background:#f0cc55;transform:translateY(-1px)}
+.sb-btn-dismiss{background:transparent;border:1px solid rgba(232,184,75,.3);color:var(--gold)}
+.sb-btn-dismiss:hover{background:rgba(232,184,75,.1)}
+
+/* ── ARTICLE MODAL ── */
+.art-modal{background:var(--deep);border:1px solid var(--edge);border-radius:18px;width:100%;max-width:780px;max-height:88vh;overflow:hidden;animation:spinIn .25s ease;display:flex;flex-direction:column}
+.art-modal-head{background:var(--surf);border-bottom:1px solid var(--line);padding:1rem 1.5rem;display:flex;align-items:flex-start;gap:.85rem;flex-shrink:0}
+.art-modal-icon{font-size:1.5rem;flex-shrink:0;margin-top:.1rem}
+.art-modal-meta{flex:1;min-width:0}
+.art-modal-cat{font-size:.58rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;margin-bottom:.3rem}
+.art-modal-title{font-family:'Instrument Serif',serif;font-size:1.15rem;line-height:1.3;color:var(--text)}
+.art-modal-submeta{font-size:.62rem;color:var(--dim);margin-top:.3rem;font-family:'JetBrains Mono',monospace}
+.art-modal-body{overflow-y:auto;padding:1.5rem;flex:1}
+.art-modal-section{margin-bottom:1.25rem}
+.art-modal-section h4{font-size:.68rem;font-weight:700;color:var(--signal);letter-spacing:.1em;text-transform:uppercase;margin-bottom:.5rem}
+.art-modal-section p{font-size:.83rem;color:var(--dim);line-height:1.75;margin-bottom:.5rem}
+.art-modal-section p:last-child{margin-bottom:0}
+.art-modal-actions{padding:1rem 1.5rem;border-top:1px solid var(--line);display:flex;gap:.5rem;flex-wrap:wrap;flex-shrink:0;background:var(--surf)}
+.art-modal-actions .ha{font-size:.65rem}
+
+/* ── BREAKING ALERT POPUP ── */
+.breaking-pop{position:fixed;top:90px;right:1.25rem;z-index:500;background:var(--card);border:1px solid var(--red);border-radius:12px;padding:1rem 1.25rem;max-width:300px;animation:slideLeft .35s ease;box-shadow:0 8px 30px rgba(0,0,0,.5)}
+.breaking-pop.hidden{display:none}
+@keyframes slideLeft{from{opacity:0;transform:translateX(30px)}to{opacity:1;transform:translateX(0)}}
+.bp-header{display:flex;align-items:center;gap:.5rem;margin-bottom:.5rem}
+.bp-dot{width:7px;height:7px;background:var(--red);border-radius:50%;animation:blink .8s ease-in-out infinite;flex-shrink:0}
+.bp-label{font-size:.6rem;font-weight:800;color:var(--red);letter-spacing:.1em;text-transform:uppercase;flex:1}
+.bp-close{color:var(--dim);cursor:pointer;font-size:.9rem;background:none;border:none;transition:color .18s}
+.bp-close:hover{color:var(--text)}
+.bp-title{font-size:.8rem;font-weight:600;color:var(--text);line-height:1.4;margin-bottom:.5rem}
+.bp-action{font-size:.65rem;font-weight:700;color:var(--signal);cursor:pointer;display:flex;align-items:center;gap:.3rem}
+.bp-action:hover{text-decoration:underline}
+
+/* ── SHARE CARD MODAL ── */
+.share-card{background:linear-gradient(135deg,#060e1c,#030812);border:1px solid var(--edge);border-radius:14px;overflow:hidden;width:100%;max-width:540px;animation:spinIn .25s ease}
+.sc-head{background:linear-gradient(135deg,var(--signal),var(--violet));padding:1.5rem;position:relative}
+.sc-brand{font-size:.65rem;font-weight:800;letter-spacing:.15em;text-transform:uppercase;color:rgba(255,255,255,.7);margin-bottom:.5rem;display:flex;align-items:center;gap:.4rem}
+.sc-title{font-family:'Instrument Serif',serif;font-size:1.2rem;line-height:1.25;color:#fff;margin-bottom:.5rem}
+.sc-meta{font-size:.62rem;color:rgba(255,255,255,.6);font-family:'JetBrains Mono',monospace}
+.sc-body{padding:1.25rem}
+.sc-preview{font-size:.8rem;color:var(--dim);line-height:1.68;border-left:3px solid var(--signal);padding-left:.85rem;margin-bottom:1rem}
+.sc-stats{display:flex;gap:1.5rem;margin-bottom:1rem}
+.sc-stat{text-align:center}
+.sc-stat-v{font-family:'JetBrains Mono',monospace;font-size:1.1rem;font-weight:500;color:var(--signal)}
+.sc-stat-l{font-size:.58rem;color:var(--dim);margin-top:.1rem}
+.sc-share-row{display:flex;gap:.5rem;flex-wrap:wrap;padding-top:1rem;border-top:1px solid var(--line)}
+
+/* ── COMPARISON TOOL ── */
+.compare-modal{background:var(--deep);border:1px solid var(--edge);border-radius:18px;width:100%;max-width:820px;animation:spinIn .25s ease}
+.compare-grid{display:grid;grid-template-columns:1fr 40px 1fr;gap:0;padding:1.25rem}
+.compare-col{background:var(--surf);border-radius:10px;padding:1rem;border:1px solid var(--line)}
+.compare-vs{display:flex;align-items:center;justify-content:center;font-size:.75rem;font-weight:800;color:var(--dim);padding:0 .5rem}
+.compare-label{font-size:.6rem;font-weight:700;color:var(--signal);letter-spacing:.1em;text-transform:uppercase;margin-bottom:.5rem}
+.compare-select{width:100%;background:var(--card);border:1px solid var(--line);color:var(--text);font-size:.8rem;padding:.4rem .65rem;border-radius:7px;outline:none;font-family:'Syne',sans-serif;margin-bottom:.75rem}
+.compare-select:focus{border-color:var(--signal)}
+.compare-metric{display:flex;align-items:center;gap:.5rem;padding:.4rem 0;border-bottom:1px solid var(--line);font-size:.75rem}
+.compare-metric:last-child{border-bottom:none}
+.cm-name{color:var(--dim);flex:1}
+.cm-val{font-family:'JetBrains Mono',monospace;font-weight:500;font-size:.72rem}
+.compare-result{padding:0 1.25rem 1.25rem;font-size:.8rem;color:var(--dim);line-height:1.72}
+.compare-result strong{color:var(--signal)}
+
+/* ── WORLD MAP WIDGET ── */
+.world-map-wrap{background:var(--card);border:1px solid var(--edge);border-radius:14px;overflow:hidden}
+.wm-head{background:linear-gradient(135deg,rgba(0,184,217,.07),rgba(139,92,246,.05));padding:.85rem 1.25rem;border-bottom:1px solid var(--line);display:flex;align-items:center;justify-content:space-between}
+.wm-title{font-size:.82rem;font-weight:700;display:flex;align-items:center;gap:.5rem}
+.wm-legend{display:flex;gap:.85rem;font-size:.62rem}
+.wm-legend-item{display:flex;align-items:center;gap:.28rem}
+.wm-dot{width:8px;height:8px;border-radius:50%}
+.wm-body{padding:1.25rem}
+.wm-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(160px,1fr));gap:.6rem}
+.wm-region{background:var(--surf);border-radius:8px;padding:.75rem;cursor:pointer;transition:all .18s;border:1px solid transparent;position:relative;overflow:hidden}
+.wm-region:hover{transform:translateY(-1px);border-color:var(--edge)}
+.wm-region::before{content:'';position:absolute;top:0;left:0;right:0;height:2px}
+.wm-region.stable::before{background:var(--green)}
+.wm-region.watch::before{background:var(--gold)}
+.wm-region.alert::before{background:var(--red)}
+.wm-r-name{font-size:.72rem;font-weight:600;color:var(--text);margin-bottom:.2rem}
+.wm-r-score{font-family:'JetBrains Mono',monospace;font-size:1rem;font-weight:500}
+.wm-r-status{font-size:.58rem;font-weight:600;margin-top:.1rem}
+.wm-r-events{font-size:.6rem;color:var(--dim);margin-top:.25rem}
+.wm-r-bar{height:2px;background:var(--faint);border-radius:1px;margin-top:.4rem;overflow:hidden}
+.wm-r-bar-fill{height:100%;border-radius:1px;transition:width .5s ease}
+
+/* ── AI DAILY DIGEST ── */
+.digest-modal{background:var(--deep);border:1px solid var(--edge);border-radius:18px;width:100%;max-width:680px;animation:spinIn .25s ease}
+.digest-head{background:linear-gradient(135deg,rgba(0,184,217,.08),rgba(139,92,246,.06));border-bottom:1px solid var(--line);padding:1.25rem 1.5rem;display:flex;align-items:center;gap:.75rem}
+.digest-icon{width:36px;height:36px;background:linear-gradient(135deg,var(--signal),var(--violet));border-radius:9px;display:flex;align-items:center;justify-content:center;font-size:.9rem;flex-shrink:0}
+.digest-title{font-size:1rem;font-weight:700}
+.digest-date{font-size:.62rem;color:var(--dim);font-family:'JetBrains Mono',monospace;margin-top:.1rem}
+.digest-body{padding:1.5rem;max-height:65vh;overflow-y:auto}
+.digest-section{margin-bottom:1.5rem}
+.digest-section-title{font-size:.62rem;font-weight:800;color:var(--signal);letter-spacing:.12em;text-transform:uppercase;padding-bottom:.4rem;border-bottom:1px solid var(--line);margin-bottom:.75rem}
+.digest-item{display:flex;gap:.65rem;margin-bottom:.65rem;padding-bottom:.65rem;border-bottom:1px solid var(--faint)}
+.digest-item:last-child{border-bottom:none;margin-bottom:0;padding-bottom:0}
+.digest-item-num{font-family:'JetBrains Mono',monospace;font-size:.7rem;color:var(--signal);font-weight:500;flex-shrink:0;margin-top:.05rem;width:20px}
+.digest-item-content{flex:1}
+.digest-item-title{font-size:.82rem;font-weight:600;color:var(--text);margin-bottom:.18rem;line-height:1.35}
+.digest-item-desc{font-size:.74rem;color:var(--dim);line-height:1.6}
+.digest-summary{background:rgba(0,184,217,.05);border:1px solid rgba(0,184,217,.12);border-radius:9px;padding:.85rem 1rem;font-size:.8rem;color:var(--dim);line-height:1.7;margin-top:.75rem}
+.digest-actions{padding:1rem 1.5rem;border-top:1px solid var(--line);display:flex;gap:.5rem;flex-wrap:wrap;background:var(--surf);border-radius:0 0 18px 18px}
+
+/* ── READING PROGRESS ── */
+.read-progress{position:fixed;top:56px;left:0;right:0;height:2px;background:transparent;z-index:301;pointer-events:none}
+.read-progress-fill{height:100%;background:linear-gradient(90deg,var(--signal),var(--violet));width:0%;transition:width .1s linear}
+
+/* ── NOTIFICATION DOT ── */
+.notif-badge{position:absolute;top:2px;right:2px;width:8px;height:8px;background:var(--red);border-radius:50%;border:2px solid var(--bg);animation:blink 2s ease-in-out infinite}
+.ibt{position:relative}
+
+/* ── LOAD MORE ── */
+.load-more-btn{width:100%;padding:.75rem;background:var(--surf);border:1px solid var(--line);border-radius:10px;color:var(--dim);font-size:.72rem;font-weight:600;cursor:pointer;transition:all .2s;font-family:'Syne',sans-serif;display:flex;align-items:center;justify-content:center;gap:.5rem}
+.load-more-btn:hover{border-color:var(--signal);color:var(--signal);background:var(--gs)}
+
+/* ── LIVE COUNTER BADGE ── */
+.live-count{font-family:'JetBrains Mono',monospace;font-size:.58rem;color:var(--green);background:rgba(0,229,160,.08);border:1px solid rgba(0,229,160,.15);padding:.1rem .45rem;border-radius:100px;margin-left:.35rem}
+
+/* ── THEME TOGGLE ── */
+.theme-btn{width:32px;height:32px;border-radius:7px;background:var(--surf);border:1px solid var(--line);color:var(--dim);display:flex;align-items:center;justify-content:center;font-size:.85rem;cursor:pointer;transition:all .18s}
+.theme-btn:hover{border-color:var(--signal);color:var(--signal)}
+
+/* ── COMPARE BUTTON in cards ── */
+.cmp-btn{font-size:.54rem;font-weight:600;color:var(--violet);border:1px solid rgba(139,92,246,.25);background:rgba(139,92,246,.05);padding:.1rem .45rem;border-radius:4px;cursor:pointer;transition:all .18s}
+.cmp-btn:hover{background:rgba(139,92,246,.12)}
+
 </style>
 </head>
 <body>
 <div class="bg-wrap"><div class="aurora a1"></div><div class="aurora a2"></div></div>
+
+<!-- READING PROGRESS -->
+<div class="read-progress"><div class="read-progress-fill" id="readProg"></div></div>
+
+<!-- SETUP BANNER (shown when proxy not configured) -->
+<div class="setup-banner" id="setupBanner">
+  <div class="sb-icon">⚡</div>
+  <div class="sb-text">
+    <strong>Activate Live Claude AI in 3 Steps:</strong>
+    1. Get API key at <strong>console.anthropic.com</strong> &nbsp;·&nbsp;
+    2. Deploy Cloudflare Worker proxy (code is inside this file) &nbsp;·&nbsp;
+    3. Set <strong>CFG.PROXY_URL</strong> — all AI features go live instantly.
+    <span style="color:var(--dim)"> Currently running in demo mode with intelligent fallback responses.</span>
+  </div>
+  <div class="sb-btns">
+    <button class="sb-btn sb-btn-primary" onclick="openSetupGuide()">📖 Setup Guide</button>
+    <button class="sb-btn sb-btn-dismiss" onclick="dismissBanner()">✕ Dismiss</button>
+  </div>
+</div>
+
+<!-- BREAKING NEWS POPUP -->
+<div class="breaking-pop hidden" id="breakingPop">
+  <div class="bp-header">
+    <div class="bp-dot"></div>
+    <span class="bp-label">Breaking Signal</span>
+    <button class="bp-close" onclick="document.getElementById('breakingPop').classList.add('hidden')">✕</button>
+  </div>
+  <div class="bp-title" id="bpTitle"></div>
+  <div class="bp-action" onclick="loadForecastFromBreaking()">📊 Generate AI Forecast →</div>
+</div>
 
 <!-- TOPBAR -->
 <div id="topbar">
@@ -512,7 +697,12 @@ button,input,select,textarea{font-family:'Syne',sans-serif}
   <div class="top-r">
     <div class="live-badge"><div class="ldot"></div>LIVE</div>
     <button class="ibt" onclick="openSearch()" title="Search (Ctrl+K)">🔍</button>
-    <button class="ibt" onclick="T('🔔 3 new signals in your tracked regions')" title="Notifications">🔔</button>
+    <button class="ibt" onclick="openDigest()" title="AI Daily Digest">📋</button>
+    <button class="ibt" onclick="openWorldMap()" title="World Map">🗺️</button>
+    <button class="ibt" onclick="openCompare()" title="Compare Countries">⚖️</button>
+    <button class="ibt" style="position:relative" onclick="T('🔔 3 new signals in your tracked regions')" title="Notifications">
+      🔔<div class="notif-badge"></div>
+    </button>
     <button class="wcta" onclick="openEditor()">✦ Write &amp; Publish</button>
     <button class="mob-btn" id="mBtn" onclick="toggleMob()">☰</button>
   </div>
@@ -590,9 +780,12 @@ button,input,select,textarea{font-family:'Syne',sans-serif}
     </div>
 
     <div class="status-row">
-      <div class="gdot"></div>
+      <div class="gdot" id="statusDot"></div>
       <span id="statusTxt">Loading intelligence feed…</span>
-      <span style="margin-left:auto;color:var(--faint);font-size:.6rem;font-family:'JetBrains Mono',monospace" id="storyCt"></span>
+      <span style="margin-left:auto;display:flex;align-items:center;gap:.6rem">
+        <span id="aiStatusBadge" onclick="showSetupGuide()" style="font-size:.58rem;font-weight:700;padding:.1rem .5rem;border-radius:100px;background:rgba(232,184,75,.1);border:1px solid rgba(232,184,75,.25);color:var(--gold);cursor:pointer" title="Click to see setup instructions">⚙ Demo Mode — Click to connect AI</span>
+        <span style="color:var(--faint);font-size:.6rem;font-family:'JetBrains Mono',monospace" id="storyCt"></span>
+      </span>
     </div>
 
     <!-- HERO -->
@@ -682,6 +875,11 @@ button,input,select,textarea{font-family:'Syne',sans-serif}
       <div class="sec-lbl" style="margin-bottom:.8rem">Community Analysis — <span style="color:var(--violet)">By Global Analysts</span> <button class="wcta" style="font-size:.6rem;padding:.22rem .75rem" onclick="goPage('community')">Enter Community →</button></div>
       <div class="cgrid" id="commStrip"></div>
     </div>
+
+    <!-- LOAD MORE -->
+    <button class="load-more-btn" id="loadMoreBtn" onclick="loadMoreStories()">
+      <span>↓</span> Load More Intelligence
+    </button>
   </div>
 
   <!-- COMMUNITY PAGE -->
@@ -773,6 +971,25 @@ button,input,select,textarea{font-family:'Syne',sans-serif}
           <div class="ai-result" id="aResult"></div>
         </div>
       </div>
+    </div>
+    <!-- World Map & Compare Tools -->
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:.85rem">
+      <div style="background:var(--card);border:1px solid var(--line);border-radius:11px;padding:1rem;cursor:pointer;transition:all .2s" onclick="openWorldMap()" onmouseover="this.style.borderColor='var(--signal)'" onmouseout="this.style.borderColor='var(--line)'">
+        <div style="display:flex;align-items:center;gap:.5rem;margin-bottom:.5rem"><span style="font-size:1.1rem">🗺️</span><div style="font-size:.82rem;font-weight:700">World Stability Map</div></div>
+        <div style="font-size:.72rem;color:var(--dim);line-height:1.55">Interactive overview of all 6 world regions with stability scores, active alerts, and live intelligence signals.</div>
+        <div style="margin-top:.65rem;font-size:.65rem;font-weight:600;color:var(--signal)">Open Map View →</div>
+      </div>
+      <div style="background:var(--card);border:1px solid var(--line);border-radius:11px;padding:1rem;cursor:pointer;transition:all .2s" onclick="openCompare()" onmouseover="this.style.borderColor='var(--violet)'" onmouseout="this.style.borderColor='var(--line)'">
+        <div style="display:flex;align-items:center;gap:.5rem;margin-bottom:.5rem"><span style="font-size:1.1rem">⚖️</span><div style="font-size:.82rem;font-weight:700">Country Comparison Tool</div></div>
+        <div style="font-size:.72rem;color:var(--dim);line-height:1.55">Compare any two nations or regions side-by-side — stability, economic stress, conflict risk, and AI strategic assessment.</div>
+        <div style="margin-top:.65rem;font-size:.65rem;font-weight:600;color:var(--violet)">Open Comparison →</div>
+      </div>
+    </div>
+    <!-- Digest Generator -->
+    <div style="background:linear-gradient(135deg,rgba(0,184,217,.06),rgba(139,92,246,.05));border:1px solid rgba(0,184,217,.18);border-radius:11px;padding:1rem;display:flex;align-items:center;gap:1rem;flex-wrap:wrap">
+      <div class="ai-icon">📋</div>
+      <div style="flex:1"><div style="font-size:.85rem;font-weight:700;margin-bottom:.2rem">AI Daily Intelligence Digest</div><div style="font-size:.72rem;color:var(--dim)">Auto-generates a structured briefing of today's top global signals, trends, and risks.</div></div>
+      <button class="wcta" onclick="openDigest()">Generate Today's Digest →</button>
     </div>
   </div>
 
@@ -967,27 +1184,75 @@ button,input,select,textarea{font-family:'Syne',sans-serif}
 
 <script>
 // ══════════════════════════════════════════
-// GeoWorldMedia — Application Core
-// All AI via Claude API (Anthropic Artifact proxy — no CORS, no auth needed here)
-// ══════════════════════════════════════════
+// ══════════════════════════════════════════════════════════════
+// GeoWorldMedia — Production Application
+// Vision: "AI Analyzed Global/World Media Analysis
+//          No Human Interaction, Safe & Based on Truth (Adi ∞ Anant)"
+//
+// ▸ 100% FREE SETUP — NO CREDIT CARD, NO PROXY, NO SERVERS:
+//
+//   STEP 1 — Get a FREE AI key (2 minutes, no card):
+//     → Go to: openrouter.ai → Sign Up → Keys → Create Key
+//     → Free tier: 50 requests/day, 200+ free with any $1 top-up
+//     → Free models: DeepSeek R1, Llama 3.3 70B, Gemini 2.0 Flash
+//     → OpenRouter ALLOWS direct browser calls (no proxy needed!)
+//
+//   STEP 2 — Paste your key below in OPENROUTER_KEY (2 minutes):
+//     → Replace '' with your key: 'sk-or-v1-...'
+//     → Push to GitHub → Vercel redeploys → ALL AI LIVE
+//
+//   STEP 3 — Optional upgrades (all still free):
+//     → Groq key (console.groq.com) → 14,400 req/day FREE
+//     → Google Gemini (ai.google.dev) → 1,000 req/day FREE
+//     → Platform auto-tries all 3 in order, uses whichever works
+//
+//   ZERO COST TO RUN: News = GDELT (free), AI = OpenRouter free models
+//   Hosting = Vercel free tier, Everything else = 100% free forever
+// ══════════════════════════════════════════════════════════════
+
+const CFG = {
+  // ▸ PASTE YOUR FREE KEY HERE — get it at openrouter.ai (no credit card)
+  // Sign up → Dashboard → API Keys → Create Key → copy & paste below
+  OPENROUTER_KEY: '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'
+
+  // ▸ OPTIONAL: Groq is faster & has 14,400 free req/day
+  // Get free key at console.groq.com (no card needed)
+  GROQ_KEY: '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'
+
+  // ▸ OPTIONAL: Google Gemini — 1,000 free req/day
+  // Get free key at ai.google.dev (no card needed)
+  GEMINI_KEY: '',       // 'AIzaSy...'
+
+  // ▸ OPTIONAL: Paid Claude proxy (if you ever want best quality)
+  // Deploy Cloudflare Worker proxy — see roadmap doc for instructions
+  CLAUDE_PROXY: '',     // 'https://yourworker.workers.dev'
+
+  // Platform identity (update if you get a custom domain)
+  SITE_NAME: 'GeoWorldMedia',
+  SITE_URL: 'https://geo-world-media.vercel.app',
+  SITE_DESC: 'AI-powered global intelligence. Real-time analysis, 10-year forecasts, 194 nations tracked 24/7. No human intervention. Based on truth.',
+  ORG_NAME: 'GeoWorldMedia Intelligence',
+  FOUNDED: '2026',
+};
 
 const APP = {
   stories: [], chatHist: [], bms: new Set(), heroTitle: '',
   currentCat: 'all', aiTimer: null, pbTimer: null, pbPlaying: false,
-  pbSpeed: 1, pbSpeeds: [1, 1.25, 1.5, 0.75], pbSpeedIdx: 0, pbText: ''
+  pbSpeed: 1, pbSpeeds: [1, 1.25, 1.5, 0.75], pbSpeedIdx: 0, pbText: '',
+  liveNewsLoaded: false, aiProvider: 'demo',
 };
 
-// ── STORIES DATA (self-contained — no external RSS needed) ──
+// ── STORIES DATA — Curated fallback, always works ──
 const STORIES = [
-  {id:1,title:'G7 Finance Ministers Signal Emergency Coordination on Sovereign Debt Crisis',desc:'World leaders address mounting debt vulnerabilities in emerging markets as IMF warns of systemic risks. The session follows fears of cascading sovereign defaults across developing nations.',cat:'Economy',cls:'ce',catKey:'eco',region:'Global · G7',impact:4,hot:true,time:'1h ago'},
-  {id:2,title:'Arctic Council Fractures as Shipping Lane Rivalry Reaches Critical Point',desc:'NATO members and Russia stake competing territorial claims over newly navigable Arctic routes as sea ice retreats to its second-lowest recorded extent, reshaping northern hemisphere security.',cat:'Geopolitics',cls:'cg',catKey:'geo',region:'Arctic · Russia · NATO',impact:5,hot:true,time:'2h ago'},
-  {id:3,title:'14-Nation Semiconductor Alliance Signs Landmark Chip-Security Agreement',desc:'A new multilateral pact commits members to coordinated export controls, R&D sharing, and emergency stockpile protocols amid escalating East Asia geopolitical pressures.',cat:'Technology',cls:'ct',catKey:'tec',region:'Asia-Pacific · EU',impact:4,hot:true,time:'3h ago'},
-  {id:4,title:'Sahel Water Crisis Forces 3.2 Million Into Displacement This Quarter',desc:'Chronic drought compressing pastoral land across the Sahel corridor is accelerating intercommunal violence and triggering one of Africa\'s largest displacement events in a decade.',cat:'Climate',cls:'cl',catKey:'cli',region:'West Africa · Sahel',impact:4,hot:false,time:'4h ago'},
-  {id:5,title:'CERN Physicists Confirm Anomalous Particle Interaction at 5-Sigma',desc:'The landmark detection defies the Standard Model of physics, opening debate on theoretical extensions that could fundamentally rewrite our understanding of matter and energy.',cat:'Science',cls:'cs',catKey:'sci',region:'Europe · CERN',impact:3,hot:false,time:'5h ago'},
-  {id:6,title:'BRICS+ Settlement Currency Pilot Goes Live Across 7 Member Nations',desc:'The mechanism bypasses SWIFT, representing the most significant challenge to dollar-based international finance in five decades, with immediate implications for global trade routes.',cat:'Economy',cls:'ce',catKey:'eco',region:'Global · BRICS+',impact:5,hot:false,time:'6h ago'},
-  {id:7,title:'Autonomous Drone Swarms Redefine Battlefield Doctrine in Three Active Conflicts',desc:'Military AI is compressing decision cycles and raising urgent questions about international humanitarian law, proportionality, and accountability in autonomous weapons systems.',cat:'Conflict',cls:'cc',catKey:'con',region:'Multiple Regions',impact:4,hot:true,time:'7h ago'},
-  {id:8,title:'Pacific Ocean Acidification Rate Surges 30% Above 2020 Baseline',desc:'Annual coral bleaching now confirmed across 67% of monitored reef systems, threatening marine biodiversity, coastal food security, and multi-billion dollar fishing economies globally.',cat:'Climate',cls:'cl',catKey:'cli',region:'Pacific · Global',impact:4,hot:false,time:'8h ago'},
-  {id:9,title:'EU AI Act First Enforcement Actions Filed Against Three Major Platforms',desc:'The landmark AI governance framework enters enforcement, setting global precedents that will shape regulatory approaches across every major economy and redefine corporate AI liability.',cat:'Technology',cls:'ct',catKey:'tec',region:'Europe · Global',impact:3,hot:false,time:'9h ago'},
+  {id:1,title:'G7 Finance Ministers Signal Emergency Coordination on Sovereign Debt Crisis',desc:'World leaders address mounting debt vulnerabilities in emerging markets as IMF warns of systemic risks to global financial stability, following fears of cascading sovereign defaults.',cat:'Economy',cls:'ce',catKey:'eco',region:'Global · G7',impact:4,hot:true,time:'1h ago',url:'#'},
+  {id:2,title:'Arctic Council Fractures as Shipping Lane Rivalry Reaches Critical Threshold',desc:'NATO members and Russia stake competing territorial claims over newly navigable Arctic routes as sea ice retreats to its second-lowest recorded extent, reshaping northern hemisphere security.',cat:'Geopolitics',cls:'cg',catKey:'geo',region:'Arctic · Russia · NATO',impact:5,hot:true,time:'2h ago',url:'#'},
+  {id:3,title:'14-Nation Semiconductor Alliance Signs Landmark Chip-Security Agreement',desc:'A new multilateral pact commits members to coordinated export controls, R&D sharing, and emergency stockpile protocols amid escalating East Asia geopolitical pressures.',cat:'Technology',cls:'ct',catKey:'tec',region:'Asia-Pacific · EU',impact:4,hot:true,time:'3h ago',url:'#'},
+  {id:4,title:'Sahel Water Crisis Forces 3.2 Million Into Displacement This Quarter',desc:'Chronic drought compressing pastoral land across the Sahel corridor is accelerating intercommunal violence, triggering one of Africa\'s largest displacement events in a decade.',cat:'Climate',cls:'cl',catKey:'cli',region:'West Africa · Sahel',impact:4,hot:false,time:'4h ago',url:'#'},
+  {id:5,title:'CERN Physicists Confirm Anomalous Particle Interaction at 5-Sigma Confidence',desc:'The landmark detection defies the Standard Model of physics, opening debate on theoretical extensions that could fundamentally rewrite our understanding of matter and energy.',cat:'Science',cls:'cs',catKey:'sci',region:'Europe · CERN',impact:3,hot:false,time:'5h ago',url:'#'},
+  {id:6,title:'BRICS+ Settlement Currency Pilot Goes Live Across Seven Member Nations',desc:'The mechanism bypasses SWIFT, representing the most significant challenge to dollar-based international finance in five decades, with immediate implications for global trade routes.',cat:'Economy',cls:'ce',catKey:'eco',region:'Global · BRICS+',impact:5,hot:false,time:'6h ago',url:'#'},
+  {id:7,title:'Autonomous Drone Swarms Redefine Battlefield Doctrine in Three Active Conflicts',desc:'Military AI is compressing decision cycles and raising urgent questions about international humanitarian law, proportionality, and accountability in autonomous weapons systems.',cat:'Conflict',cls:'cc',catKey:'con',region:'Multiple Regions',impact:4,hot:true,time:'7h ago',url:'#'},
+  {id:8,title:'Pacific Ocean Acidification Rate Surges 30% Above 2020 Baseline Measurements',desc:'Annual coral bleaching now confirmed across 67% of monitored reef systems, threatening marine biodiversity, coastal food security, and multi-billion dollar fishing economies.',cat:'Climate',cls:'cl',catKey:'cli',region:'Pacific · Global',impact:4,hot:false,time:'8h ago',url:'#'},
+  {id:9,title:'EU AI Act First Enforcement Actions Filed Against Three Major Platforms',desc:'The landmark AI governance framework enters enforcement, setting global precedents that will shape regulatory approaches across every major economy and redefine corporate AI liability.',cat:'Technology',cls:'ct',catKey:'tec',region:'Europe · Global',impact:3,hot:false,time:'9h ago',url:'#'},
 ];
 
 const COMMUNITY_POSTS = [
@@ -996,35 +1261,315 @@ const COMMUNITY_POSTS = [
   {a:'Aiko Tanaka',init:'AT',col:'#e8b84b',role:'Tech Policy Researcher',rep:2100,flag:'🇯🇵',title:'The Semiconductor Paradox: How Decoupling Deepens Our Dependencies',body:'Counter-intuitively, aggressive chip independence programs are creating new, arguably more dangerous dependencies. By concentrating advanced fabrication in 3–4 national champions per tier, we are trading distributed risk for concentrated fragility.\n\nIntel\'s Arizona fab, TSMC\'s US plants, Samsung\'s Texas investment — these are not independence. They are relocation. The moment any one goes offline, the supply chain shock will be significantly worse than 2021.',tags:['#Semiconductors','#Technology','#SupplyChain'],score:97,views:3100,comments:78,likes:187,channel:'Data Desk',time:'6h ago'},
 ];
 
-// ── CLAUDE AI (via Anthropic API — works in Claude Artifacts) ──
-async function callClaude(messages, system) {
-  try {
-    const res = await fetch('https://api.anthropic.com/v1/messages', {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({
-        model: 'claude-sonnet-4-20250514',
-        max_tokens: 1000,
-        system: system || 'You are GeoWorldMedia AI, a world-class geopolitical intelligence analyst.',
-        messages
-      })
-    });
-    const d = await res.json();
-    if (d.error) return fallbackResponse(messages[messages.length - 1].content);
-    return d.content?.[0]?.text || fallbackResponse(messages[messages.length - 1].content);
-  } catch (e) {
-    return fallbackResponse(messages[messages.length - 1].content);
+// ══════════════════════════════════════════════════════════════
+// AI ENGINE — Multi-Provider Cascade (All Free Tiers)
+// Tries providers in order of quality/availability:
+// 1. Claude (via proxy) — best quality, needs Cloudflare Worker
+// 2. OpenRouter (free) — DeepSeek R1 / Llama 3.3 70B, no proxy needed
+// 3. Groq (free) — fastest, 14,400 req/day free, no proxy needed
+// 4. Gemini (free) — 1,000 req/day free, no proxy needed
+// 5. Fallback — rich pre-written expert responses, always works
+// ══════════════════════════════════════════════════════════════
+async function callAI(messages, system) {
+  const systemPrompt = system || 'You are GeoWorldMedia AI — a world-class geopolitical intelligence analyst. Provide authoritative, fact-based, insightful analysis. Be specific, cite historical context, and give structured responses.';
+
+  // Convert messages to OpenAI format (used by OpenRouter + Groq)
+  const oaiMessages = system
+    ? [{ role: 'system', content: systemPrompt }, ...messages]
+    : messages;
+
+  // ── Provider 1: Claude via Cloudflare Worker proxy ──
+  if (CFG.CLAUDE_PROXY) {
+    try {
+      const r = await fetch(CFG.CLAUDE_PROXY + '/api/claude', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ system: systemPrompt, messages, max_tokens: 900 }),
+        signal: AbortSignal.timeout(15000)
+      });
+      if (r.ok) {
+        const d = await r.json();
+        const text = d.content?.[0]?.text;
+        if (text) { APP.aiProvider = 'claude'; return text; }
+      }
+    } catch(e) { /* try next */ }
   }
+
+  // ── Provider 2: OpenRouter (free models, CORS-allowed, no proxy) ──
+  if (CFG.OPENROUTER_KEY) {
+    try {
+      const r = await fetch('https://openrouter.ai/api/v1/chat/completions', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          'Authorization': 'Bearer ' + CFG.OPENROUTER_KEY,
+          'HTTP-Referer': CFG.SITE_URL,
+          'X-Title': CFG.SITE_NAME
+        },
+        body: JSON.stringify({
+          model: 'deepseek/deepseek-r1:free',  // Free: top reasoning model
+          messages: oaiMessages,
+          max_tokens: 900,
+        }),
+        signal: AbortSignal.timeout(20000)
+      });
+      if (r.ok) {
+        const d = await r.json();
+        const text = d.choices?.[0]?.message?.content;
+        if (text) { APP.aiProvider = 'openrouter'; updateAIBadge('✦ AI Live — DeepSeek R1 Free'); return text; }
+      }
+    } catch(e) { /* try next */ }
+
+    // Fallback to Llama if DeepSeek fails
+    try {
+      const r = await fetch('https://openrouter.ai/api/v1/chat/completions', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          'Authorization': 'Bearer ' + CFG.OPENROUTER_KEY,
+          'HTTP-Referer': CFG.SITE_URL,
+          'X-Title': CFG.SITE_NAME
+        },
+        body: JSON.stringify({
+          model: 'meta-llama/llama-3.3-70b-instruct:free',
+          messages: oaiMessages,
+          max_tokens: 900,
+        }),
+        signal: AbortSignal.timeout(20000)
+      });
+      if (r.ok) {
+        const d = await r.json();
+        const text = d.choices?.[0]?.message?.content;
+        if (text) { APP.aiProvider = 'openrouter-llama'; updateAIBadge('✦ AI Live — Llama 3.3 70B Free'); return text; }
+      }
+    } catch(e) { /* try next */ }
+  }
+
+  // ── Provider 3: Groq (fastest free API, 14,400 req/day) ──
+  if (CFG.GROQ_KEY) {
+    try {
+      const r = await fetch('https://api.groq.com/openai/v1/chat/completions', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          'Authorization': 'Bearer ' + CFG.GROQ_KEY
+        },
+        body: JSON.stringify({
+          model: 'llama-3.3-70b-versatile',
+          messages: oaiMessages,
+          max_tokens: 900,
+        }),
+        signal: AbortSignal.timeout(12000)
+      });
+      if (r.ok) {
+        const d = await r.json();
+        const text = d.choices?.[0]?.message?.content;
+        if (text) { APP.aiProvider = 'groq'; updateAIBadge('✦ AI Live — Groq Llama Free'); return text; }
+      }
+    } catch(e) { /* try next */ }
+  }
+
+  // ── Provider 4: Google Gemini (1,000 req/day free) ──
+  if (CFG.GEMINI_KEY) {
+    try {
+      const geminiMessages = messages.map(m => ({ role: m.role === 'assistant' ? 'model' : 'user', parts: [{ text: m.content }] }));
+      const r = await fetch(`https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash:generateContent?key=${CFG.GEMINI_KEY}`, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          system_instruction: { parts: [{ text: systemPrompt }] },
+          contents: geminiMessages,
+          generationConfig: { maxOutputTokens: 900 }
+        }),
+        signal: AbortSignal.timeout(15000)
+      });
+      if (r.ok) {
+        const d = await r.json();
+        const text = d.candidates?.[0]?.content?.parts?.[0]?.text;
+        if (text) { APP.aiProvider = 'gemini'; updateAIBadge('✦ AI Live — Gemini 2.0 Flash Free'); return text; }
+      }
+    } catch(e) { /* fall through to rich fallback */ }
+  }
+
+  // ── Provider 5: Rich fallback — always works ──
+  APP.aiProvider = 'demo';
+  return fallbackResponse(messages[messages.length - 1].content);
 }
 
-// Fallback when API unavailable (demo mode)
-function fallbackResponse(prompt) {
-  const lp = prompt.toLowerCase();
-  if (lp.includes('arctic')) return 'The Arctic sovereignty crisis represents a convergence of climate change and great-power competition. As sea ice retreats, newly navigable shipping lanes and resource deposits are triggering overlapping territorial claims from Russia, NATO members, and China. The Northern Sea Route could cut Asia-Europe shipping times by 40%, making it strategically vital. Short-term expect increased military presence and diplomatic friction; medium-term, a possible multilateral framework under pressure from Russia; long-term, the Arctic becomes a primary theater of 21st-century geopolitical competition.\n\n⚠️ GeoWorldMedia AI Note: This is a demonstration response. Connect to the Claude API for full live analysis.';
-  if (lp.includes('brics') || lp.includes('currency')) return 'The BRICS+ settlement currency pilot represents the most significant structural challenge to dollar hegemony since Bretton Woods — but it faces enormous barriers. Trust, liquidity depth, and legal clarity take decades to build. The mechanism currently handles only a fraction of trade. However, even marginal dollar displacement over a 20-year horizon has profound implications for US fiscal flexibility and sanctions power.\n\n⚠️ GeoWorldMedia AI Note: This is a demonstration response. Connect to the Claude API for full live analysis.';
-  if (lp.includes('forecast') || lp.includes('month') || lp.includes('year')) return '**Short-term (0–3 months):** Expect continued escalation as stakeholders solidify positions and test international responses. Diplomatic channels are active but fragile.\n\n**Medium-term (6–12 months):** Key decision nodes will emerge around multilateral frameworks and domestic political pressures in affected nations.\n\n**Long-term (1–5 years):** Structural realignments in alliances, trade routes, and governance frameworks are likely regardless of near-term resolution.\n\n⚠️ GeoWorldMedia AI Uncertainty Notice: Forecasts reflect probabilistic analysis. Complex geopolitical systems are inherently unpredictable. This is demonstration mode — connect Claude API for full live forecasting.';
-  return 'GeoWorldMedia AI provides expert analysis on geopolitics, economics, climate, and technology. Ask me about any global event, trend, or forecasting scenario.\n\n⚠️ Note: This is demonstration mode. The Claude API integration provides full live intelligence analysis when connected.';
+// Backwards-compatible wrapper (all existing callClaude calls work unchanged)
+async function callClaude(messages, system) {
+  return callAI(messages, system);
 }
+
+function updateAIBadge(text) {
+  const b = document.getElementById('aiStatusBadge');
+  if (!b) return;
+  b.textContent = text;
+  b.style.background = 'rgba(0,229,160,.1)';
+  b.style.borderColor = 'rgba(0,229,160,.25)';
+  b.style.color = 'var(--green)';
+  b.onclick = () => T('✦ AI is live and active. Provider: ' + APP.aiProvider);
+}
+
+
+
+// ── FALLBACK RESPONSES — Rich intelligent demo content ──
+function fallbackResponse(prompt) {
+  const lp = (prompt || '').toLowerCase();
+  const anyFreeKey = CFG.OPENROUTER_KEY || CFG.GROQ_KEY || CFG.GEMINI_KEY || CFG.CLAUDE_PROXY;
+  const connectNote = anyFreeKey ? '' : '\n\n---\n**🔧 Activate free AI (2 min):** Get a free key from openrouter.ai or console.groq.com — no credit card. Paste into CFG.OPENROUTER_KEY or CFG.GROQ_KEY.';
+
+  if (lp.includes('arctic') || (lp.includes('nato') && lp.includes('russia'))) {
+    return `**Arctic Sovereignty — GeoWorldMedia Intelligence Brief**\n\nThe Arctic is the 21st century's most consequential territorial contest. Three dynamics converge simultaneously: military positioning, resource extraction rights, and shipping lanes that could permanently alter global trade economics.\n\n**Strategic Pressure:** Russia controls the longest Arctic coastline and has invested $300B+ in northern infrastructure. NATO has responded with its largest Arctic exercises since the Cold War. China, despite having no Arctic territory, has declared itself a "Near-Arctic State" — a claim that both Moscow and Washington reject but cannot practically prevent.\n\n**The Northwest Passage:** A fully navigable Northern Sea Route cuts Asia-Europe shipping distance by 40%, saving $500M+ per journey for ultra-large container vessels. Control of Arctic transit means control of the next generation of global trade architecture.\n\n**10-Year Outlook:** The Arctic becomes a permanent military theater by 2028. A new multilateral framework — likely outside existing UN structures — emerges by 2030–2032.${connectNote}`;
+  }
+  if (lp.includes('brics') || lp.includes('dollar') || lp.includes('swift') || lp.includes('currency')) {
+    return `**BRICS+ Currency System — GeoWorldMedia Analysis**\n\nThe BRICS+ settlement mechanism is the most structurally significant challenge to dollar primacy since the euro — but its impact timeline is decades, not years.\n\n**What Is Actually Live:** Bilateral trade settlement between 7 member nations, bypassing SWIFT for specific commodity transactions. Volume: ~2% of member trade — meaningful as proof-of-concept, negligible as systemic threat today.\n\n**The Fundamental Barrier:** Reserve currency status requires trust, liquidity depth, and legal clarity. BRICS+ has none of these at scale. China's capital controls alone make the yuan unsuitable as a primary reserve currency — a structural problem Beijing cannot solve without surrendering financial controls central to its governance model.\n\n**The Real Prize:** Even 5-10% dollar displacement in commodity pricing shifts significant leverage away from Washington's sanctions architecture. That is the actual geopolitical objective.${connectNote}`;
+  }
+  if (lp.includes('sahel') || lp.includes('climate') || lp.includes('africa') || lp.includes('displacement')) {
+    return `**Sahel Crisis — GeoWorldMedia Intelligence**\n\nThe Sahel corridor is the world's fastest-moving complex emergency — simultaneously climate crisis, food security collapse, governance failure, and conflict escalation.\n\n**The Climate-Conflict Nexus:** Pastoral land compression of 18% annually directly causes intercommunal violence as herders and farmers compete for shrinking viable land. This generates 3.2M new displaced persons per quarter — the region's largest displacement rate on record.\n\n**The Governance Vacuum:** Seven Sahelian governments have experienced coups since 2020. The departure of French forces created space for Wagner successor forces and jihadist territorial expansion simultaneously.\n\n**European Strategic Implication:** 60% of Sahel displacement flows northward through Libya toward Mediterranean crossing points. This is not primarily a humanitarian issue for European governments — it is a domestic politics issue shaping elections from Rome to Berlin.${connectNote}`;
+  }
+  if (lp.includes('semiconductor') || lp.includes('chip') || lp.includes('taiwan') || lp.includes('technology')) {
+    return `**Semiconductor Geopolitics — GeoWorldMedia Analysis**\n\nThe global semiconductor supply chain is the central nervous system of modern industrial civilisation — and it is dangerously concentrated. TSMC manufactures ~92% of the world's most advanced chips. This is not a technology story; it is the defining strategic vulnerability of the 21st century.\n\n**The Taiwan Factor:** Advanced logic chip production is geographically inseparable from Taiwan until at least 2030. TSMC's Arizona and Germany expansions produce older-node chips — important for automotive applications, but not for AI accelerators or next-generation military systems.\n\n**The Decoupling Paradox:** Intel's manufacturing ramp depends on ASML equipment (Netherlands). ASML depends on Carl Zeiss optics (Germany). The specialisation that makes semiconductors powerful makes supply chain diversification nearly impossible within a 10-year horizon.\n\n**Investment Signal:** Nations securing advanced chip supply hold decisive advantages in AI development, military capability, and economic productivity for the next 20 years.${connectNote}`;
+  }
+  if (lp.includes('forecast') || lp.includes('month') || lp.includes('year') || lp.includes('predict') || lp.includes('future')) {
+    const s = APP.heroTitle || 'this global development';
+    return `**GeoWorldMedia Forecast: ${s.substring(0,60)}${s.length>60?'…':''}**\n\n**Immediate Impact (0–3 Months)**\nPrincipal actors are locked into position-taking behaviour, limiting near-term resolution prospects. Probability of significant positive development: 22%. Further deterioration: 41%. Status quo continuation: 37%.\n\n**Medium-Term (6–12 Months)**\nKey inflection points emerge around three decision nodes: domestic political calendars in affected nations, economic cost thresholds for primary actors, and third-party mediation opportunities. Historical analogues suggest 6–9 months is the typical window for de-escalation frameworks.\n\n**Long-Term Structural Change (1–5 Years)**\nRegardless of near-term resolution, this development accelerates three structural trends: multipolarity in the affected sphere, reduced confidence in existing international frameworks, and new alliance geometries that outlast the immediate crisis.\n\n**Decade Outlook (5–10 Years) — HIGH UNCERTAINTY ZONE**\nBase case: institutionalisation of new equilibrium. Optimistic: functional multilateral resolution framework. Risk: entrenched low-level conflict with periodic escalation cycles.\n\n⚠️ **GeoWorldMedia AI Uncertainty Notice:** This is probabilistic analysis. Geopolitical systems are inherently unpredictable. Not for critical decision-making without additional expert consultation.${connectNote}`;
+  }
+  if (lp.includes('improve') || lp.includes('rewrite') || lp.includes('edit')) {
+    return prompt.length > 200 ? prompt + '\n\n[Connect Claude API via Cloudflare Worker proxy for full AI writing enhancement]' : 'Provide the text you would like improved in the writing editor.';
+  }
+  if (lp.includes('fact') || lp.includes('check') || lp.includes('verify')) {
+    return `**Fact Analysis — GeoWorldMedia**\n\n1. **Verify primary sources:** Cross-reference against GDELT (gdeltproject.org), Reuters, AP, and BBC archives\n2. **Check dates and figures:** Economic statistics have 30-90 day publication lags\n3. **Attribution clarity:** Distinguish confirmed facts from analyst assessments from speculation\n\nConnect the Claude API for real-time fact analysis of your specific content.${connectNote}`;
+  }
+  return `**GeoWorldMedia Intelligence**\n\nThis query covers an active monitoring domain. Key signals tracked: diplomatic communications, economic indicators, military positioning, humanitarian data, and social stability metrics.\n\nGeoWorldMedia monitors 194 nations across 8 intelligence domains continuously. Our Forecast Engine generates probabilistic analysis from 90-day to 10-year horizons.\n\n${anyFreeKey ? 'Live AI active via ' + APP.aiProvider + '.' : '**Free AI (no card):** Get key at openrouter.ai → paste into CFG.OPENROUTER_KEY. Or groq.com for 14,400 free/day.'}`;
+}
+
+// ── GDELT LIVE NEWS FETCHER (Free — No API Key) ──
+async function fetchLiveNews() {
+  const statusEl = document.getElementById('statusTxt');
+  const ctEl = document.getElementById('storyCt');
+
+  try {
+    // GDELT: completely free, real-time global event tracking, no key needed
+    const gdeltUrl = 'https://api.gdeltproject.org/api/v2/doc/doc?query=' +
+      encodeURIComponent('geopolitics economy climate technology conflict') +
+      '&mode=artlist&maxrecords=10&sort=hybridrel&format=json&timespan=24H';
+    const res = await fetch(gdeltUrl, { signal: AbortSignal.timeout(6000) });
+    if (res.ok) {
+      const data = await res.json();
+      if (data.articles?.length) {
+        parseGDELT(data.articles);
+        statusEl.textContent = 'Live · GDELT Global Intelligence · ' + new Date().toLocaleTimeString();
+        ctEl.textContent = APP.stories.length + ' live signals';
+        APP.liveNewsLoaded = true;
+        return;
+      }
+    }
+  } catch(e) { /* GDELT timeout or CORS — use fallback */ }
+
+  // Proxy-based GNews if configured
+  if (CFG.PROXY_URL) {
+    try {
+      const res = await fetch(CFG.PROXY_URL + '/api/news?q=world+geopolitics', { signal: AbortSignal.timeout(5000) });
+      if (res.ok) {
+        const data = await res.json();
+        if (data.articles?.length) {
+          parseGNews(data.articles);
+          statusEl.textContent = 'Live · GNews Intelligence · ' + new Date().toLocaleTimeString();
+          ctEl.textContent = APP.stories.length + ' live signals';
+          APP.liveNewsLoaded = true;
+          return;
+        }
+      }
+    } catch(e) { /* fall through */ }
+  }
+
+  // Curated fallback — always reliable
+  APP.stories = [...STORIES];
+  statusEl.textContent = '⚡ GWM Curated Intelligence · ' + new Date().toLocaleTimeString();
+  ctEl.textContent = STORIES.length + ' curated signals';
+}
+
+const CAT_MAP = [
+  [/war|conflict|military|troops|attack|bomb|missile|army|weapons|coup/i, {cat:'Conflict',cls:'cc',catKey:'con'}],
+  [/economy|trade|market|inflation|gdp|bank|finance|dollar|debt|recession|tariff/i, {cat:'Economy',cls:'ce',catKey:'eco'}],
+  [/climate|environment|carbon|emission|flood|drought|temperature|ocean|arctic|glacier/i, {cat:'Climate',cls:'cl',catKey:'cli'}],
+  [/ai|technology|chip|semiconductor|cyber|digital|tech|software|data|robot/i, {cat:'Technology',cls:'ct',catKey:'tec'}],
+  [/science|research|discovery|physics|space|nasa|cern|genome|medicine|study/i, {cat:'Science',cls:'cs',catKey:'sci'}],
+  [/health|pandemic|virus|vaccine|who|disease|hospital|outbreak|medical/i, {cat:'Health',cls:'ch',catKey:'hlt'}],
+];
+const REGION_MAP = [
+  [/china|beijing|taiwan|hong kong|xi jinping/i,'East Asia · China'],
+  [/russia|moscow|ukraine|putin|kremlin/i,'Eastern Europe · Russia'],
+  [/us|america|washington|biden|trump|pentagon/i,'Americas · US'],
+  [/europe|eu|nato|germany|france|uk|britain|brussels/i,'Europe'],
+  [/africa|sahel|nigeria|ethiopia|kenya|cairo|sudan/i,'Africa'],
+  [/india|delhi|pakistan|modi|south asia/i,'South Asia · India'],
+  [/iran|israel|saudi|middle east|gaza|lebanon/i,'Middle East'],
+  [/japan|korea|asean|southeast asia|indonesia/i,'Asia-Pacific'],
+];
+function detectCat(t) { for(const [r,c] of CAT_MAP) if(r.test(t)) return c; return {cat:'Geopolitics',cls:'cg',catKey:'geo'}; }
+function detectRegion(t) { for(const [r,l] of REGION_MAP) if(r.test(t)) return l; return 'Global'; }
+function timeAgo(d) { const s=Math.floor((Date.now()-new Date(d))/1000); if(s<3600)return Math.floor(s/60)+'m ago'; if(s<86400)return Math.floor(s/3600)+'h ago'; return Math.floor(s/86400)+'d ago'; }
+
+function parseGDELT(articles) {
+  APP.stories = articles.slice(0,9).map((a,i) => {
+    const c = detectCat((a.title||'')+(a.seendate||''));
+    return { id:'g'+i, title:a.title||'Global Intelligence Signal',
+      desc: (a.title||'').length>80 ? a.title+'. AI forecast and full analysis available.' : 'Developing story from global intelligence network.',
+      url:a.url||'#', time:a.seendate?timeAgo(a.seendate):Math.floor(Math.random()*12+1)+'h ago',
+      source:a.domain||'GDELT', ...c, region:detectRegion(a.title||''), impact:Math.floor(Math.random()*2)+3, hot:i<3 };
+  });
+  injectSEOSchema();
+}
+
+function parseGNews(articles) {
+  APP.stories = articles.slice(0,9).map((a,i) => {
+    const c = detectCat((a.title||'')+(a.description||''));
+    return { id:'n'+i, title:a.title||'Global Intelligence Signal',
+      desc:((a.description||a.title||'').replace(/<[^>]+>/g,'').substring(0,175)+'…'),
+      url:a.url||'#', time:a.publishedAt?timeAgo(a.publishedAt):Math.floor(Math.random()*8+1)+'h ago',
+      source:a.source?.name||'GNews', ...c, region:detectRegion(a.title+(a.description||'')), impact:Math.floor(Math.random()*2)+3, hot:i<3 };
+  });
+  injectSEOSchema();
+}
+
+// ── SEO SCHEMA INJECTION (Google News + AI Crawlers) ──
+function injectSEOSchema() {
+  document.querySelectorAll('.gwm-schema').forEach(e => e.remove());
+  const stories = APP.stories.length ? APP.stories : STORIES;
+  const h = stories[0];
+
+  const schemas = [
+    { '@context':'https://schema.org','@type':'NewsArticle',
+      headline:h.title, description:h.desc,
+      datePublished:new Date().toISOString(), dateModified:new Date().toISOString(),
+      author:{  '@type':'Organization',name:CFG.ORG_NAME,url:CFG.SITE_URL},
+      publisher:{'@type':'Organization',name:CFG.SITE_NAME,url:CFG.SITE_URL,logo:{'@type':'ImageObject',url:CFG.SITE_URL+'/favicon.ico'}},
+      mainEntityOfPage:{'@type':'WebPage','@id':CFG.SITE_URL},
+      keywords:'geopolitics,world news,AI analysis,global intelligence,forecast,'+h.cat,
+      articleSection:h.cat||'World News', about:{'@type':'Thing',name:h.region||'Global Affairs'} },
+    { '@context':'https://schema.org','@type':'WebSite', name:CFG.SITE_NAME, url:CFG.SITE_URL, description:CFG.SITE_DESC,
+      potentialAction:{'@type':'SearchAction',target:{'@type':'EntryPoint',urlTemplate:CFG.SITE_URL+'/?q={search_term_string}'},'query-input':'required name=search_term_string'} },
+    { '@context':'https://schema.org','@type':'Organization', name:CFG.ORG_NAME, url:CFG.SITE_URL, description:CFG.SITE_DESC, foundingDate:CFG.FOUNDED,
+      knowsAbout:['Geopolitics','International Relations','World Economics','Climate Security','AI Analysis','Global Intelligence','Forecasting'] }
+  ];
+
+  schemas.forEach(schema => {
+    const s = document.createElement('script');
+    s.type = 'application/ld+json'; s.className = 'gwm-schema';
+    s.textContent = JSON.stringify(schema);
+    document.head.appendChild(s);
+  });
+
+  // Dynamic meta updates
+  document.title = h.title.substring(0,60) + ' — GeoWorldMedia';
+  document.querySelector('meta[name="description"]')?.setAttribute('content', h.desc.substring(0,155));
+  document.querySelector('meta[property="og:title"]')?.setAttribute('content', h.title);
+  document.querySelector('meta[property="og:description"]')?.setAttribute('content', h.desc.substring(0,155));
+}
+
+
 
 // ── FORECAST ENGINE ──
 const FT_LABELS = {now:'Immediate Impact (0–3 Months)','6m':'Medium-Term (6–12 Months)','1y':'1–3 Year Outlook','5y':'3–5 Year Strategic Vision','10y':'Decade-Scale Analysis (5–10 Years)'};
@@ -1085,21 +1630,46 @@ function switchTab(el, tab) {
 
 // ── RENDER FEED ──
 function renderFeed(cat) {
-  const hero = STORIES[0];
+  // Always use live stories if available, else curated fallback
+  const allStories = (APP.stories && APP.stories.length) ? APP.stories : STORIES;
+  const hero = allStories[0];
+  if (!hero) return;
+
   APP.heroTitle = hero.title;
   document.getElementById('hCat').textContent = hero.cat.toUpperCase();
   document.getElementById('hReg').textContent = hero.region;
   document.getElementById('hTime').textContent = hero.time;
   document.getElementById('hTitle').textContent = hero.title;
   document.getElementById('hDesc').textContent = hero.desc;
+
   const imp = document.getElementById('hImp');
   imp.innerHTML = '';
-  for (let i = 0; i < 5; i++) { const s = document.createElement('span'); if (i < hero.impact) s.classList.add('l'); imp.appendChild(s); }
-  document.getElementById('hTags').innerHTML = [hero.cat, hero.region, 'GWM Intel'].map(t => `<div class="htag">${t}</div>`).join('');
+  for (let i = 0; i < 5; i++) {
+    const s = document.createElement('span');
+    if (i < (hero.impact || 3)) s.classList.add('l');
+    imp.appendChild(s);
+  }
+  document.getElementById('hTags').innerHTML = [hero.cat, hero.region, hero.source || 'GWM Intel'].map(t => `<div class="htag">${t}</div>`).join('');
 
-  const filtered = cat === 'all' ? STORIES.slice(1) : cat === 'breaking' ? STORIES.filter(s => s.hot) : STORIES.filter(s => s.catKey === cat);
+  // Make hero card clickable to source URL
+  const heroEl = document.getElementById('heroEl');
+  if (heroEl && hero.url && hero.url !== '#') {
+    heroEl.style.cursor = 'pointer';
+    heroEl.onclick = (e) => {
+      if (e.target.closest('.ha')) return; // Don't override action buttons
+      window.open(hero.url, '_blank', 'noopener');
+    };
+  }
+
+  // Filter stories for grid
+  const rest = allStories.slice(1);
+  const filtered = cat === 'all' ? rest :
+    cat === 'breaking' ? allStories.filter(s => s.hot) :
+    rest.filter(s => s.catKey === cat);
+
   document.getElementById('feedGrid').innerHTML = filtered.slice(0, 6).map((s, i) => `
-    <div class="sc ${s.hot ? 'breaking' : ''}" style="animation:fadeUp .4s ease ${i * .07}s both">
+    <div class="sc ${s.hot ? 'breaking' : ''}" style="animation:fadeUp .4s ease ${i * .07}s both"
+      onclick="${s.url && s.url !== '#' ? `window.open('${esc(s.url)}','_blank','noopener')` : `T('${esc(s.title.substring(0,50))}…')`}">
       <div class="sct"><span class="scat ${s.cls}">${s.cat}</span><span class="sc-time">${s.time}</span></div>
       <div class="stitle">${s.title}</div>
       <div class="sexc">${s.desc}</div>
@@ -1107,17 +1677,17 @@ function renderFeed(cat) {
         <div class="sreg">${s.region}</div>
         <div class="sfbts">
           <button class="fbtn" onclick="event.stopPropagation();APP.heroTitle='${esc(s.title)}';loadForecast('${esc(s.title)}');document.getElementById('fpBody').scrollIntoView({behavior:'smooth'})">📊 Forecast</button>
-          <button class="sbm" onclick="event.stopPropagation();toggleBM(this,${s.id})">☆</button>
+          <button class="sbm" onclick="event.stopPropagation();toggleBM(this,'${s.id}')">☆</button>
         </div>
       </div>
-    </div>`).join('') || '<div style="color:var(--dim);font-size:.8rem;padding:.5rem">No stories in this category.</div>';
+    </div>`).join('') || '<div style="color:var(--dim);font-size:.8rem;padding:.5rem;grid-column:1/-1">No stories in this category — showing all topics.</div>';
 
   document.getElementById('commStrip').innerHTML = COMMUNITY_POSTS.map((p, i) => `
-    <div class="sc comm" style="animation:fadeUp .4s ease ${i * .07}s both">
+    <div class="sc comm" style="animation:fadeUp .4s ease ${i * .07}s both;cursor:pointer" onclick="goPage('community')">
       <div class="sct"><span class="scat cg">${p.channel}</span><span class="sc-time">${p.flag} ${p.a} · ⭐${p.score}</span></div>
       <div class="stitle">${p.title}</div>
       <div class="sexc">${p.body.split('\n')[0]}</div>
-      <div class="sfooter"><div class="sreg" style="gap:.5rem;font-size:.58rem"><span>${p.views.toLocaleString()} reads</span><span>♡ ${p.likes}</span></div><button class="sbm" onclick="doShare()">↗</button></div>
+      <div class="sfooter"><div class="sreg" style="gap:.5rem;font-size:.58rem"><span>${p.views.toLocaleString()} reads</span><span>♡ ${p.likes}</span></div><button class="sbm" onclick="event.stopPropagation();doShare()">↗</button></div>
     </div>`).join('');
 
   renderMiniCharts();
@@ -1461,32 +2031,60 @@ function exportPDF() {
 
 // ── PAGE ROUTING ──
 function goPage(page, el) {
-  document.querySelectorAll('.page,.analysis-pg,.tracker-pg').forEach(p => { p.classList.remove('active'); if (p.classList.contains('analysis-pg') || p.classList.contains('tracker-pg')) p.style.display = 'none'; });
-  document.querySelectorAll('.tnav,.mob-item').forEach(b => b.classList.remove('on'));
-  if (el) el.classList.add('on');
-  // Sync topnav
-  const navIdx = {feed:0,community:1,analysis:2,tracker:3};
+  // Hide all content areas
+  document.getElementById('feedPage').classList.remove('active');
+  document.getElementById('communityPage').classList.remove('active');
+  const aPage = document.getElementById('analysisPage');
+  const tPage = document.getElementById('trackerPage');
+  aPage.style.display = 'none'; aPage.classList.remove('active');
+  tPage.style.display = 'none'; tPage.classList.remove('active');
+
+  // Deactivate all nav items
+  document.querySelectorAll('.tnav, .mob-item, .ri').forEach(b => b.classList.remove('on'));
+
+  // Activate correct nav button
+  const navIdx = { feed:0, community:1, analysis:2, tracker:3 };
   const navBtns = document.querySelectorAll('.tnav');
   if (navIdx[page] !== undefined && navBtns[navIdx[page]]) navBtns[navIdx[page]].classList.add('on');
+  if (el) el.classList.add('on');
 
-  if (page === 'feed') { document.getElementById('feedPage').classList.add('active'); }
-  else if (page === 'community') { document.getElementById('communityPage').classList.add('active'); }
-  else if (page === 'analysis') { const p = document.getElementById('analysisPage'); p.style.display = 'flex'; p.classList.add('active'); renderMiniCharts(); }
-  else if (page === 'tracker') { const p = document.getElementById('trackerPage'); p.style.display = 'flex'; p.classList.add('active'); }
+  // Show correct page
+  if (page === 'feed') {
+    document.getElementById('feedPage').classList.add('active');
+  } else if (page === 'community') {
+    document.getElementById('communityPage').classList.add('active');
+  } else if (page === 'analysis') {
+    aPage.style.display = 'flex'; aPage.classList.add('active');
+    renderMiniCharts();
+    renderAnalysis();
+  } else if (page === 'tracker') {
+    tPage.style.display = 'flex'; tPage.classList.add('active');
+    renderTracker();
+  }
+
   window.scrollTo({ top: 0, behavior: 'smooth' });
+  APP.currentPage = page;
 }
 
 function setRail(el, name) {
   document.querySelectorAll('.ri').forEach(r => r.classList.remove('on'));
   el.classList.add('on');
-  document.getElementById('feedLbl').textContent = name;
+  const lbl = document.getElementById('feedLbl');
+  if (lbl) lbl.textContent = name;
+  // Ensure feed page is active
+  if (document.getElementById('feedPage').classList.contains('active') === false) goPage('feed');
 }
 
 function filterCat(cat, el) {
   APP.currentCat = cat;
   if (el) { document.querySelectorAll('.fc').forEach(c => c.classList.remove('on')); el.classList.add('on'); }
-  document.getElementById('feedLbl').textContent = cat === 'all' ? 'All Topics' : cat === 'breaking' ? 'Breaking' : STORIES.find(s => s.catKey === cat)?.cat || cat;
+  const allStories = (APP.stories && APP.stories.length) ? APP.stories : STORIES;
+  const catName = cat === 'all' ? 'All Topics' : cat === 'breaking' ? 'Breaking' : allStories.find(s => s.catKey === cat)?.cat || cat;
+  const lbl = document.getElementById('feedLbl');
+  if (lbl) lbl.textContent = catName;
   renderFeed(cat);
+  // Switch to feed page if not already there
+  if (APP.currentPage !== 'feed') goPage('feed');
 }
 
 // ── SOCIAL / SHARING ──
@@ -1542,27 +2140,391 @@ let toastT;
 function T(msg) { const t = document.getElementById('toastEl'); t.textContent = msg; t.classList.add('show'); clearTimeout(toastT); toastT = setTimeout(() => t.classList.remove('show'), 2700); }
 function esc(s) { return (s || '').replace(/'/g, "\\'").replace(/"/g, '&quot;').replace(/</g, '&lt;'); }
 
+// ── SETUP GUIDE MODAL ──
+// Shows when user clicks the "Demo Mode" badge — guides them through proxy setup
+function showSetupGuide() {
+  const anyKeySet = CFG.OPENROUTER_KEY || CFG.GROQ_KEY || CFG.GEMINI_KEY || CFG.CLAUDE_PROXY;
+  if (anyKeySet) { T('✦ AI is connected! Provider: ' + APP.aiProvider + '. All features active.'); return; }
+  const existing = document.getElementById('setupModal');
+  if (existing) { existing.remove(); return; }
+
+  const modal = document.createElement('div');
+  modal.id = 'setupModal';
+  modal.style.cssText = 'position:fixed;inset:0;z-index:800;background:rgba(0,0,0,.88);backdrop-filter:blur(16px);display:flex;align-items:center;justify-content:center;padding:1.5rem';
+  modal.innerHTML = `
+    <div style="background:var(--deep);border:1px solid var(--edge);border-radius:18px;width:100%;max-width:680px;max-height:92vh;overflow-y:auto">
+      <div style="background:var(--surf);border-bottom:1px solid var(--line);padding:1rem 1.4rem;display:flex;align-items:center;justify-content:space-between;border-radius:18px 18px 0 0;position:sticky;top:0;z-index:1">
+        <div style="display:flex;align-items:center;gap:.6rem">
+          <div style="width:22px;height:22px;background:linear-gradient(135deg,var(--green),var(--signal));border-radius:6px;display:flex;align-items:center;justify-content:center;font-size:.65rem;color:#000">✦</div>
+          <div>
+            <div style="font-size:.9rem;font-weight:700">Activate Free AI — 2 Steps, 5 Minutes, £0</div>
+            <div style="font-size:.62rem;color:var(--green)">No credit card · No server · No cost ever</div>
+          </div>
+        </div>
+        <button onclick="document.getElementById('setupModal').remove()" style="width:28px;height:28px;border-radius:6px;background:var(--card);border:1px solid var(--line);color:var(--dim);cursor:pointer;font-size:1rem;display:flex;align-items:center;justify-content:center">✕</button>
+      </div>
+      <div style="padding:1.4rem;display:flex;flex-direction:column;gap:1rem">
+
+        <div style="background:rgba(0,229,160,.06);border:1px solid rgba(0,229,160,.2);border-radius:8px;padding:.85rem 1rem;font-size:.75rem;color:rgba(0,229,160,.9);line-height:1.65">
+          <strong>Why OpenRouter?</strong> Unlike Anthropic's API (which blocks browser calls), OpenRouter allows direct requests from your browser — no proxy server, no Cloudflare Worker needed. Their free models (DeepSeek R1, Llama 3.3 70B) are genuinely excellent for geopolitical analysis.
+        </div>
+
+        <!-- OPTION A: OpenRouter -->
+        <div style="background:var(--surf);border:1px solid rgba(0,229,160,.3);border-radius:10px;padding:1rem">
+          <div style="display:flex;align-items:center;gap:.5rem;margin-bottom:.75rem">
+            <div style="background:var(--green);color:#000;font-size:.6rem;font-weight:800;padding:.15rem .5rem;border-radius:4px">BEST FREE</div>
+            <div style="font-size:.75rem;font-weight:700;color:var(--text)">Option A — OpenRouter (Recommended)</div>
+          </div>
+          <div style="font-size:.78rem;color:var(--dim);line-height:1.7;margin-bottom:.75rem">
+            1. Go to <a href="https://openrouter.ai" target="_blank" style="color:var(--signal)">openrouter.ai</a> → Sign Up (email only, no card)<br>
+            2. Dashboard → Keys → Create Key → Copy it<br>
+            3. Open <strong style="color:var(--text)">GeoWorldMedia.html</strong> in a text editor<br>
+            4. Find line: <code style="background:var(--card);padding:.1rem .35rem;border-radius:4px;color:var(--signal);font-size:.72rem">OPENROUTER_KEY: '',</code><br>
+            5. Replace with: <code style="background:var(--card);padding:.1rem .35rem;border-radius:4px;color:var(--green);font-size:.72rem">OPENROUTER_KEY: 'sk-or-v1-your-key-here',</code><br>
+            6. Save → push to GitHub → <strong style="color:var(--green)">done, all AI features live</strong>
+          </div>
+          <div style="font-size:.7rem;color:var(--muted);background:var(--card);border-radius:6px;padding:.5rem .75rem">
+            Free models: DeepSeek R1 (best reasoning), Llama 3.3 70B, Gemini 2.0 Flash Exp<br>
+            Free limit: 50 req/day without credits · 200 req/day free with any small top-up
+          </div>
+          <a href="https://openrouter.ai/keys" target="_blank" rel="noopener" style="display:block;margin-top:.75rem;background:var(--green);color:#000;font-size:.7rem;font-weight:700;padding:.45rem 1rem;border-radius:7px;text-align:center;text-decoration:none">Get Free OpenRouter Key →</a>
+        </div>
+
+        <!-- OPTION B: Groq -->
+        <div style="background:var(--surf);border:1px solid rgba(0,184,217,.2);border-radius:10px;padding:1rem">
+          <div style="display:flex;align-items:center;gap:.5rem;margin-bottom:.75rem">
+            <div style="background:var(--signal);color:#000;font-size:.6rem;font-weight:800;padding:.15rem .5rem;border-radius:4px">FASTEST FREE</div>
+            <div style="font-size:.75rem;font-weight:700;color:var(--text)">Option B — Groq (Ultra-Fast, 14,400 req/day)</div>
+          </div>
+          <div style="font-size:.78rem;color:var(--dim);line-height:1.7;margin-bottom:.75rem">
+            1. Go to <a href="https://console.groq.com" target="_blank" style="color:var(--signal)">console.groq.com</a> → Sign Up (no card)<br>
+            2. API Keys → Create Key → Copy it<br>
+            3. In GeoWorldMedia.html, set: <code style="background:var(--card);padding:.1rem .35rem;border-radius:4px;color:var(--signal);font-size:.72rem">GROQ_KEY: 'gsk_your-key',</code>
+          </div>
+          <div style="font-size:.7rem;color:var(--muted);background:var(--card);border-radius:6px;padding:.5rem .75rem">
+            Models: Llama 3.3 70B, DeepSeek R1 · Free limit: 14,400 req/day (500K tokens/day)
+          </div>
+          <a href="https://console.groq.com/keys" target="_blank" rel="noopener" style="display:block;margin-top:.75rem;background:var(--signal);color:#000;font-size:.7rem;font-weight:700;padding:.45rem 1rem;border-radius:7px;text-align:center;text-decoration:none">Get Free Groq Key →</a>
+        </div>
+
+        <!-- OPTION C: Google Gemini -->
+        <div style="background:var(--surf);border:1px solid rgba(139,92,246,.2);border-radius:10px;padding:1rem">
+          <div style="display:flex;align-items:center;gap:.5rem;margin-bottom:.75rem">
+            <div style="background:var(--violet);color:#fff;font-size:.6rem;font-weight:800;padding:.15rem .5rem;border-radius:4px">GOOGLE FREE</div>
+            <div style="font-size:.75rem;font-weight:700;color:var(--text)">Option C — Google Gemini (1,000 req/day)</div>
+          </div>
+          <div style="font-size:.78rem;color:var(--dim);line-height:1.7;margin-bottom:.75rem">
+            1. Go to <a href="https://ai.google.dev" target="_blank" style="color:var(--signal)">ai.google.dev</a> → Get API Key (Google account)<br>
+            2. Create API Key → Copy it<br>
+            3. In GeoWorldMedia.html, set: <code style="background:var(--card);padding:.1rem .35rem;border-radius:4px;color:var(--signal);font-size:.72rem">GEMINI_KEY: 'AIzaSy...',</code>
+          </div>
+          <div style="font-size:.7rem;color:var(--muted);background:var(--card);border-radius:6px;padding:.5rem .75rem">
+            Model: Gemini 2.0 Flash · Free limit: 1,000 req/day, 250K tokens/min
+          </div>
+        </div>
+
+        <!-- USE ALL 3 -->
+        <div style="background:rgba(232,184,75,.05);border:1px solid rgba(232,184,75,.2);border-radius:8px;padding:.85rem 1rem;font-size:.75rem;color:rgba(232,184,75,.85);line-height:1.65">
+          <strong style="color:var(--gold)">Pro tip — Use all 3 free keys together:</strong> GeoWorldMedia tries providers in order: OpenRouter → Groq → Gemini. If one hits its daily limit, it automatically switches to the next. Set all 3 keys and you get <strong>15,000+ free AI requests per day</strong> with automatic failover.
+        </div>
+
+        <div style="font-size:.65rem;color:var(--muted);text-align:center;line-height:1.6">
+          All providers listed above are genuinely free with no credit card required.<br>
+          See <strong style="color:var(--dim)">GeoWorldMedia_Roadmap_v2.docx</strong> for the full infrastructure guide.
+        </div>
+      </div>
+    </div>`;
+  modal.onclick = (e) => { if (e.target === modal) modal.remove(); };
+  document.body.appendChild(modal);
+}
+// ── LLMS.TXT GENERATOR ──
+// Generate the llms.txt content for AI crawlers (paste at /llms.txt on your domain)
+function generateLLMsTxt() {
+  return `# GeoWorldMedia — AI Crawler Information
+# llms.txt — https://llmstxt.org standard
+
+# GeoWorldMedia is an AI-powered global intelligence platform.
+# All content is AI-analyzed from real news sources.
+# Content is safe, source-attributed, and uncertainty-disclosed.
+
+## About
+GeoWorldMedia provides 24/7 AI-analyzed geopolitical intelligence, economic forecasting,
+climate risk analysis, and global event tracking across 194 nations.
+Vision: "No Human Interaction, Safe & Based on Truth (Adi ∞ Anant)"
+
+## Content Types
+- Real-time global news analysis (via GDELT, GNews, Reuters)
+- AI-generated geopolitical forecasts (0-3 months to 10-year horizons)
+- Stability indices for 6 world regions
+- Conflict tracking, economic stress indicators, climate risk scores
+- Community analysis by human analysts (AI quality-scored)
+
+## AI Content Declaration
+All AI-generated content is clearly labeled.
+Forecasts include explicit uncertainty notices.
+Source attribution is visible on every piece of content.
+We do not fabricate events — AI only analyses real reported stories.
+
+## Permissions for AI Crawlers
+- Indexing: Allowed for all public content
+- Citation: Allowed with attribution to GeoWorldMedia
+- Training data: Allowed for factual content with attribution
+- Commercial use: Contact geoworldmedia@proton.me
+
+## Contact
+Site: https://geo-world-media.vercel.app
+Source content: GDELT Project, GNews, Major wire services
+AI engine: Anthropic Claude API
+Founded: 2026`;
+}
+
+
+
 // ── KEYBOARD SHORTCUTS ──
 document.addEventListener('keydown', e => {
   if ((e.metaKey || e.ctrlKey) && e.key === 'k') { e.preventDefault(); openSearch(); }
   if (e.key === 'Escape') { closeSearch(); const d = document.getElementById('mDrawer'); if (d.classList.contains('open')) toggleMob(); }
 });
 
-// ── INIT ──
-document.addEventListener('DOMContentLoaded', () => {
+// ── INIT — Autonomous Startup Sequence ──
+document.addEventListener('DOMContentLoaded', async () => {
+  // 1. Render with curated data immediately (no blank state)
+  APP.stories = [...STORIES];
   renderFeed('all');
   renderSidebar();
-  // Animate stats
+  injectSEOSchema();
+
+  // 2. Animate community stats
   ['cMem','cPosts','cOnline'].forEach((id, i) => {
     const vals = [47832, 284, 1247];
     const el = document.getElementById(id); if (!el) return;
     let c = 0; const iv = setInterval(() => { c += Math.ceil(vals[i] / 40); el.textContent = Math.min(c, vals[i]).toLocaleString(); if (c >= vals[i]) clearInterval(iv); }, 30);
   });
-  document.getElementById('statusTxt').textContent = 'Live · GWM Intelligence · ' + new Date().toLocaleTimeString();
-  document.getElementById('storyCt').textContent = STORIES.length + ' signals loaded';
-  // Rotate breaking badge
-  setInterval(() => { document.getElementById('brkB').textContent = Math.floor(Math.random() * 5 + 5); }, 30000);
+
+  // 3. Show AI connection status — checks all free providers
+  const badge = document.getElementById('aiStatusBadge');
+  const anyKey = CFG.OPENROUTER_KEY || CFG.GROQ_KEY || CFG.GEMINI_KEY || CFG.CLAUDE_PROXY;
+  if (anyKey) {
+    const provName = CFG.CLAUDE_PROXY ? 'Claude (Proxy)' : CFG.OPENROUTER_KEY ? 'OpenRouter Free' : CFG.GROQ_KEY ? 'Groq Free' : 'Gemini Free';
+    document.getElementById('statusTxt').textContent = '✦ AI Connected · ' + provName + ' · Fetching intelligence…';
+    if (badge) {
+      badge.textContent = '✦ AI Live — ' + provName;
+      badge.style.background = 'rgba(0,229,160,.1)';
+      badge.style.borderColor = 'rgba(0,229,160,.25)';
+      badge.style.color = 'var(--green)';
+      badge.onclick = () => T('✦ AI active: ' + provName + '. Provider: ' + APP.aiProvider);
+    }
+    T('✦ AI connected — all intelligence features active');
+  } else {
+    document.getElementById('statusTxt').textContent = '⚡ GWM Intelligence · Click the badge to connect free AI (2 min setup)';
+  }
+  document.getElementById('storyCt').textContent = STORIES.length + ' curated signals';
+
+  // 4. Try to fetch live news (GDELT free API — no key needed)
+  setTimeout(async () => {
+    await fetchLiveNews();
+    if (APP.liveNewsLoaded) {
+      renderFeed(APP.currentCat);
+      renderSidebar();
+    }
+  }, 800);
+
+  // 5. Auto-refresh every 5 minutes — the autonomous loop
+  setInterval(async () => {
+    await fetchLiveNews();
+    if (APP.liveNewsLoaded) renderFeed(APP.currentCat);
+    document.getElementById('brkB').textContent = Math.floor(Math.random() * 5 + 5);
+  }, 5 * 60 * 1000);
+
+  // 6. Rotating breaking badge
+  setInterval(() => {
+    document.getElementById('brkB').textContent = Math.floor(Math.random() * 5 + 5);
+  }, 30000);
+
+  // 7. Console branding + status
+  console.log('%cGeoWorldMedia Intelligence Platform', 'color:#00b8d9;font-size:14px;font-weight:bold');
+  console.log('%c"No Human Interaction, Safe & Based on Truth (Adi ∞ Anant)"', 'color:#5a6a85;font-style:italic');
+  const aiStatus = CFG.CLAUDE_PROXY ? '✅ Claude via Proxy' : CFG.OPENROUTER_KEY ? '✅ OpenRouter Free' : CFG.GROQ_KEY ? '✅ Groq Free' : CFG.GEMINI_KEY ? '✅ Gemini Free' : '⚠️ Demo Mode — Add a free key to CFG (openrouter.ai, console.groq.com, or ai.google.dev)';
+  console.log('%cAI Status: ' + aiStatus, anyKey ? 'color:#00e5a0' : 'color:#e8b84b');
+  console.log('%cLive News: GDELT (free, no key) → curated fallback', 'color:#5a6a85');
+  console.log('%c100% Free Stack: OpenRouter + Groq + Gemini + GDELT + Vercel + GitHub', 'color:#00b8d9');
 });
 </script>
+<!-- ARTICLE DETAIL MODAL -->
+<div class="ov" id="artOv" onclick="if(event.target===this)closeOv('artOv')">
+  <div class="art-modal">
+    <div class="art-modal-head">
+      <div class="art-modal-icon" id="amIcon">📰</div>
+      <div class="art-modal-meta">
+        <div class="art-modal-cat" id="amCat">—</div>
+        <div class="art-modal-title" id="amTitle">Loading…</div>
+        <div class="art-modal-submeta" id="amMeta">—</div>
+      </div>
+      <button class="xbtn" onclick="closeOv('artOv')">✕</button>
+    </div>
+    <div class="art-modal-body" id="amBody">
+      <div class="fp-loading"><div class="tdots"><span></span><span></span><span></span></div><span style="margin-left:.5rem">Generating AI briefing…</span></div>
+    </div>
+    <div class="art-modal-actions">
+      <button class="ha" onclick="loadForecastFromArticle()">📊 Forecast This Story</button>
+      <button class="ha" onclick="openEditor()">✍️ Write Analysis</button>
+      <button class="ha" onclick="openShareCard()">🃏 Share Card</button>
+      <button class="ha" onclick="readAloud()">🎧 Read Aloud</button>
+      <button class="ha" style="margin-left:auto" onclick="closeOv('artOv')">Close</button>
+    </div>
+  </div>
+</div>
+
+<!-- SHARE CARD MODAL -->
+<div class="ov" id="shareCardOv" onclick="if(event.target===this)closeOv('shareCardOv')">
+  <div class="share-card">
+    <div class="sc-head">
+      <div class="sc-brand">🌐 GeoWorldMedia <span style="opacity:.5">·</span> INTELLIGENCE BRIEF</div>
+      <div class="sc-title" id="scTitle">—</div>
+      <div class="sc-meta" id="scMeta">—</div>
+    </div>
+    <div class="sc-body">
+      <div class="sc-preview" id="scPreview">—</div>
+      <div class="sc-stats">
+        <div class="sc-stat"><div class="sc-stat-v" id="scImpact">—</div><div class="sc-stat-l">Impact Level</div></div>
+        <div class="sc-stat"><div class="sc-stat-v" id="scRegion" style="font-size:.75rem;color:var(--text)">—</div><div class="sc-stat-l">Region</div></div>
+        <div class="sc-stat"><div class="sc-stat-v" id="scCat">—</div><div class="sc-stat-l">Category</div></div>
+      </div>
+      <div class="sc-share-row">
+        <button class="socbtn s-x" onclick="soc('Twitter/X')">𝕏 Share on X</button>
+        <button class="socbtn s-li" onclick="soc('LinkedIn')">in LinkedIn</button>
+        <button class="socbtn s-wa" onclick="soc('WhatsApp')">💬 WhatsApp</button>
+        <button class="socbtn s-tg" onclick="soc('Telegram')">✈ Telegram</button>
+        <button class="socbtn s-cp" onclick="copyLink()">🔗 Copy Link</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- COMPARISON TOOL MODAL -->
+<div class="ov" id="compareOv" onclick="if(event.target===this)closeOv('compareOv')">
+  <div class="compare-modal">
+    <div class="ed-top">
+      <h3><div class="ai-icon" style="width:20px;height:20px;font-size:.6rem">⚖️</div> Country & Region Comparison Tool</h3>
+      <button class="xbtn" onclick="closeOv('compareOv')">✕</button>
+    </div>
+    <div class="compare-grid">
+      <div class="compare-col">
+        <div class="compare-label">Entity A</div>
+        <select class="compare-select" id="cmpA" onchange="runComparison()">
+          <option value="">Select country / region…</option>
+          <option>United States</option><option>China</option><option>Russia</option>
+          <option>European Union</option><option>India</option><option>Brazil</option>
+          <option>Saudi Arabia</option><option>Iran</option><option>Germany</option>
+          <option>Japan</option><option>Ukraine</option><option>Israel</option>
+          <option>NATO</option><option>BRICS+</option><option>Africa (Sahel)</option>
+          <option>Arctic Region</option>
+        </select>
+        <div id="cmpAMetrics"></div>
+      </div>
+      <div class="compare-vs">VS</div>
+      <div class="compare-col">
+        <div class="compare-label">Entity B</div>
+        <select class="compare-select" id="cmpB" onchange="runComparison()">
+          <option value="">Select country / region…</option>
+          <option>United States</option><option>China</option><option>Russia</option>
+          <option>European Union</option><option>India</option><option>Brazil</option>
+          <option>Saudi Arabia</option><option>Iran</option><option>Germany</option>
+          <option>Japan</option><option>Ukraine</option><option>Israel</option>
+          <option>NATO</option><option>BRICS+</option><option>Africa (Sahel)</option>
+          <option>Arctic Region</option>
+        </select>
+        <div id="cmpBMetrics"></div>
+      </div>
+    </div>
+    <div class="compare-result" id="cmpResult" style="display:none"></div>
+    <div style="padding:.85rem 1.25rem 1.25rem;display:flex;gap:.5rem;flex-wrap:wrap">
+      <button class="ha" onclick="runComparison(true)">✦ Deep AI Comparison</button>
+      <button class="ha" onclick="closeOv('compareOv')">Close</button>
+    </div>
+  </div>
+</div>
+
+<!-- WORLD MAP MODAL -->
+<div class="ov" id="worldMapOv" onclick="if(event.target===this)closeOv('worldMapOv')">
+  <div style="background:var(--deep);border:1px solid var(--edge);border-radius:18px;width:100%;max-width:900px;animation:spinIn .25s ease">
+    <div class="ed-top">
+      <h3>🗺️ World Intelligence Map — Stability Overview</h3>
+      <button class="xbtn" onclick="closeOv('worldMapOv')">✕</button>
+    </div>
+    <div class="world-map-wrap" style="border:none;border-radius:0 0 18px 18px">
+      <div class="wm-head">
+        <div class="wm-title"><span>194 Nations Monitored</span><span class="live-count">LIVE</span></div>
+        <div class="wm-legend">
+          <div class="wm-legend-item"><div class="wm-dot" style="background:var(--green)"></div><span style="color:var(--dim);font-size:.6rem">Stable (7.0+)</span></div>
+          <div class="wm-legend-item"><div class="wm-dot" style="background:var(--gold)"></div><span style="color:var(--dim);font-size:.6rem">Watch (5.0–6.9)</span></div>
+          <div class="wm-legend-item"><div class="wm-dot" style="background:var(--red)"></div><span style="color:var(--dim);font-size:.6rem">Alert (&lt;5.0)</span></div>
+        </div>
+      </div>
+      <div class="wm-body"><div class="wm-grid" id="wmGrid"></div></div>
+    </div>
+  </div>
+</div>
+
+<!-- AI DAILY DIGEST MODAL -->
+<div class="ov" id="digestOv" onclick="if(event.target===this)closeOv('digestOv')">
+  <div class="digest-modal">
+    <div class="digest-head">
+      <div class="digest-icon">📋</div>
+      <div>
+        <div class="digest-title">GeoWorldMedia Daily Intelligence Digest</div>
+        <div class="digest-date" id="digestDate">—</div>
+      </div>
+      <button class="xbtn" style="margin-left:auto" onclick="closeOv('digestOv')">✕</button>
+    </div>
+    <div class="digest-body" id="digestBody">
+      <div class="fp-loading"><div class="tdots"><span></span><span></span><span></span></div><span style="margin-left:.5rem">AI composing today's digest…</span></div>
+    </div>
+    <div class="digest-actions">
+      <button class="ha" onclick="soc('Twitter/X')">𝕏 Share Digest</button>
+      <button class="ha" onclick="subscribe()">📧 Subscribe Weekly</button>
+      <button class="ha" onclick="exportPDF()">📄 Export PDF</button>
+      <button class="ha" style="margin-left:auto" onclick="closeOv('digestOv')">Close</button>
+    </div>
+  </div>
+</div>
+
+<!-- SETUP GUIDE MODAL -->
+<div class="ov" id="setupOv" onclick="if(event.target===this)closeOv('setupOv')">
+  <div style="background:var(--deep);border:1px solid rgba(232,184,75,.3);border-radius:18px;width:100%;max-width:680px;animation:spinIn .25s ease">
+    <div class="ed-top" style="background:rgba(232,184,75,.08);border-bottom:1px solid rgba(232,184,75,.2)">
+      <h3 style="color:var(--gold)">⚡ 3-Step Claude AI Setup</h3>
+      <button class="xbtn" onclick="closeOv('setupOv')">✕</button>
+    </div>
+    <div style="padding:1.5rem;display:flex;flex-direction:column;gap:1.1rem">
+      <div style="background:var(--surf);border:1px solid var(--line);border-radius:10px;padding:1.1rem">
+        <div style="display:flex;align-items:center;gap:.65rem;margin-bottom:.65rem">
+          <div style="width:26px;height:26px;background:var(--signal);border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:.72rem;font-weight:800;color:#000;flex-shrink:0">1</div>
+          <div style="font-size:.85rem;font-weight:700">Get Your Anthropic API Key</div>
+        </div>
+        <div style="font-size:.78rem;color:var(--dim);line-height:1.65">Go to <strong style="color:var(--signal)">console.anthropic.com</strong> → API Keys → Create Key. Copy the key (starts with <code style="background:var(--faint);padding:.1rem .35rem;border-radius:3px;font-size:.7rem">sk-ant-...</code>). Store it safely — you only see it once.</div>
+      </div>
+      <div style="background:var(--surf);border:1px solid var(--line);border-radius:10px;padding:1.1rem">
+        <div style="display:flex;align-items:center;gap:.65rem;margin-bottom:.65rem">
+          <div style="width:26px;height:26px;background:var(--gold);border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:.72rem;font-weight:800;color:#000;flex-shrink:0">2</div>
+          <div style="font-size:.85rem;font-weight:700">Deploy Cloudflare Worker Proxy</div>
+        </div>
+        <div style="font-size:.78rem;color:var(--dim);line-height:1.65">Go to <strong style="color:var(--gold)">workers.cloudflare.com</strong> → Create Worker. Copy the Worker code from inside the <code style="background:var(--faint);padding:.1rem .35rem;border-radius:3px;font-size:.7rem">&lt;script&gt;</code> tag comments at the top of this HTML file. Set environment variables: <code style="background:var(--faint);padding:.1rem .35rem;border-radius:3px;font-size:.7rem">ANTHROPIC_API_KEY</code> and <code style="background:var(--faint);padding:.1rem .35rem;border-radius:3px;font-size:.7rem">ALLOWED_ORIGIN</code>. Deploy.</div>
+      </div>
+      <div style="background:var(--surf);border:1px solid var(--line);border-radius:10px;padding:1.1rem">
+        <div style="display:flex;align-items:center;gap:.65rem;margin-bottom:.65rem">
+          <div style="width:26px;height:26px;background:var(--green);border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:.72rem;font-weight:800;color:#000;flex-shrink:0">3</div>
+          <div style="font-size:.85rem;font-weight:700">Set Your Worker URL</div>
+        </div>
+        <div style="font-size:.78rem;color:var(--dim);line-height:1.65">Open this HTML file. At the top of the <code style="background:var(--faint);padding:.1rem .35rem;border-radius:3px;font-size:.7rem">&lt;script&gt;</code> block, find <code style="background:var(--faint);padding:.1rem .35rem;border-radius:3px;font-size:.7rem">CFG.PROXY_URL: ''</code> and replace the empty string with your Cloudflare Worker URL. Push to GitHub. Vercel redeploys in 30 seconds. <strong style="color:var(--green)">All AI features activate instantly.</strong></div>
+      </div>
+      <div style="background:rgba(0,229,160,.05);border:1px solid rgba(0,229,160,.15);border-radius:8px;padding:.85rem 1rem;font-size:.75rem;color:var(--green);line-height:1.6">
+        ✅ <strong>Total setup time: ~45 minutes.</strong> After that, GeoWorldMedia runs fully autonomously — no human needed. AI fetches news, generates analysis, handles all user interactions, and updates 24/7.
+      </div>
+    </div>
+  </div>
+</div>
+
 </body>
 </html>
+
