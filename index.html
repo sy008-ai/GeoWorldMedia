@@ -4,8 +4,22 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>GeoWorldMedia — Understand Your World</title>
-<meta name="description" content="Real-time global intelligence, AI-powered forecasting, and a community of world analysts.">
+<meta name="description" content="Real-time global intelligence, AI-powered 10-year forecasting, and a global community of analysts. Understand the world.">
+<meta name="theme-color" content="#030508">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='16' fill='%2300b8d9'/><text y='.9em' font-size='70' x='12'>🌐</text></svg>">
+<!-- Open Graph -->
+<meta property="og:type" content="website">
+<meta property="og:title" content="GeoWorldMedia — Understand Your World">
+<meta property="og:description" content="Real-time global intelligence, AI-powered 10-year forecasting, and a global community of world analysts.">
+<meta property="og:url" content="https://geo-world-media.vercel.app/">
+<meta property="og:site_name" content="GeoWorldMedia">
+<!-- Twitter Card -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="GeoWorldMedia — Understand Your World">
+<meta name="twitter:description" content="Real-time global intelligence + AI forecasting + analyst community. The world, explained.">
+<meta name="twitter:site" content="@GeoWorldMedia">
 <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;500;600;700;800&family=Instrument+Serif:ital@0;1&family=JetBrains+Mono:wght@300;400;500&display=swap" rel="stylesheet">
 <style>
 /* ══════════════════════════════════════════════
@@ -531,7 +545,115 @@ textarea,input,select{font-family:'Syne',sans-serif}
 
 /* RESPONSIVE */
 @media(max-width:1200px){.shell{grid-template-columns:195px 1fr}.r-rail{display:none}.cgrid{grid-template-columns:1fr 1fr}.comm-layout{grid-template-columns:1fr}.comm-channels{display:none}}
-@media(max-width:768px){.shell{grid-template-columns:1fr}.l-rail{display:none}.cgrid{grid-template-columns:1fr}.hero{grid-template-columns:1fr}.hero-viz{min-height:160px}.astrip{grid-template-columns:1fr}.topnav{display:none}.fp-scenarios{grid-template-columns:1fr}}
+@media(max-width:768px){.shell{grid-template-columns:1fr}.l-rail{display:none}.cgrid{grid-template-columns:1fr}.hero{grid-template-columns:1fr}.hero-viz{min-height:160px}.astrip{grid-template-columns:1fr}.topnav{display:none}.fp-scenarios{grid-template-columns:1fr}.comm-hero{flex-direction:column}.comm-hero-stats{flex-direction:row;gap:1.5rem}.brand-tagline{display:none}.write-cta span{display:none}.fp-tabs{gap:0.2rem}.fpt{font-size:0.58rem;padding:0.24rem 0.55rem}}
+
+/* ── MOBILE NAV ── */
+.mob-menu-btn{display:none;width:34px;height:34px;border-radius:7px;background:var(--surface);border:1px solid var(--line);color:var(--dim);align-items:center;justify-content:center;font-size:1.1rem}
+@media(max-width:768px){.mob-menu-btn{display:flex}}
+.mob-nav-drawer{
+  display:none;position:fixed;top:58px;left:0;right:0;z-index:298;
+  background:rgba(3,5,8,0.97);backdrop-filter:blur(20px);
+  border-bottom:1px solid var(--line);
+  padding:1rem;flex-direction:column;gap:0.3rem;
+}
+.mob-nav-drawer.open{display:flex}
+.mob-nav-item{padding:0.65rem 1rem;border-radius:8px;font-size:0.85rem;font-weight:600;color:var(--dim);cursor:pointer;border:1px solid transparent;transition:all 0.18s}
+.mob-nav-item:hover,.mob-nav-item.on{background:var(--surface);border-color:var(--line);color:var(--signal)}
+
+/* ── FOOTER ── */
+.gwm-footer{
+  border-top:1px solid var(--line);
+  background:var(--deep);
+  padding:2rem 2.5rem;
+  position:relative;z-index:1;
+  margin-top:2rem;
+}
+.footer-grid{display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:2rem;margin-bottom:1.5rem}
+@media(max-width:768px){.footer-grid{grid-template-columns:1fr 1fr}}
+.footer-brand{font-family:'Instrument Serif',serif;font-size:1.05rem;font-weight:700;color:var(--text);margin-bottom:0.5rem}
+.footer-desc{font-size:0.75rem;color:var(--dim);line-height:1.65;margin-bottom:0.85rem;max-width:280px}
+.footer-col-title{font-size:0.6rem;font-weight:700;letter-spacing:0.12em;text-transform:uppercase;color:var(--dimmer);margin-bottom:0.65rem}
+.footer-link{font-size:0.75rem;color:var(--dim);cursor:pointer;display:block;padding:0.2rem 0;transition:color 0.18s}
+.footer-link:hover{color:var(--signal)}
+.footer-bottom{display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:0.75rem;padding-top:1.25rem;border-top:1px solid var(--line)}
+.footer-copy{font-size:0.67rem;color:var(--dimmer)}
+.footer-socials{display:flex;gap:0.5rem}
+.fsoc{width:30px;height:30px;border-radius:6px;background:var(--surface);border:1px solid var(--line);display:flex;align-items:center;justify-content:center;font-size:0.75rem;cursor:pointer;transition:all 0.18s}
+.fsoc:hover{border-color:var(--signal);color:var(--signal)}
+.newsletter-row{display:flex;gap:0.5rem;margin-top:0.75rem}
+.nl-input{flex:1;background:var(--surface);border:1px solid var(--line);border-radius:7px;padding:0.4rem 0.75rem;color:var(--text);font-size:0.75rem;outline:none;font-family:'Syne',sans-serif;transition:border-color 0.2s}
+.nl-input:focus{border-color:var(--signal)}
+.nl-input::placeholder{color:var(--dimmer)}
+.nl-btn{background:var(--signal);border:none;color:var(--void);font-size:0.68rem;font-weight:700;padding:0.4rem 0.9rem;border-radius:7px;cursor:pointer;white-space:nowrap;font-family:'Syne',sans-serif}
+.nl-btn:hover{background:#22ccee}
+
+/* ── PODCAST / READ ALOUD ── */
+.podcast-bar{
+  display:none;position:fixed;bottom:0;left:0;right:0;z-index:400;
+  background:rgba(7,9,15,0.96);backdrop-filter:blur(20px);
+  border-top:1px solid rgba(0,184,217,0.2);
+  padding:0.75rem 1.5rem;
+  align-items:center;gap:1rem;
+}
+.podcast-bar.visible{display:flex}
+.pb-info{flex:1;min-width:0}
+.pb-title{font-size:0.78rem;font-weight:600;color:var(--text);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.pb-status{font-size:0.62rem;color:var(--signal);font-family:'JetBrains Mono',monospace}
+.pb-controls{display:flex;align-items:center;gap:0.5rem}
+.pb-btn{width:32px;height:32px;border-radius:7px;background:var(--surface);border:1px solid var(--line);color:var(--dim);display:flex;align-items:center;justify-content:center;font-size:0.85rem;cursor:pointer;transition:all 0.18s}
+.pb-btn:hover{border-color:var(--signal);color:var(--signal)}
+.pb-play{background:var(--signal);border-color:var(--signal);color:var(--void);width:36px;height:36px;border-radius:8px}
+.pb-play:hover{background:#22ccee}
+.pb-speed{font-family:'JetBrains Mono',monospace;font-size:0.65rem;color:var(--dim);cursor:pointer;padding:0.2rem 0.5rem;border:1px solid var(--line);border-radius:5px;background:var(--surface)}
+.pb-progress{flex:2;height:3px;background:var(--faint);border-radius:2px;overflow:hidden;cursor:pointer;min-width:80px}
+.pb-progress-fill{height:100%;background:linear-gradient(90deg,var(--signal),var(--violet));border-radius:2px;transition:width 0.5s linear}
+
+/* ── EMBED MODAL ── */
+.embed-box{background:var(--surface);border:1px solid var(--line);border-radius:8px;padding:0.75rem;font-family:'JetBrains Mono',monospace;font-size:0.7rem;color:var(--signal2);line-height:1.6;word-break:break-all;margin-top:0.75rem;cursor:pointer}
+.embed-box:hover{border-color:var(--signal)}
+
+/* ── ANNOTATION HIGHLIGHT ── */
+.annotatable{position:relative}
+.annotatable::selection{background:rgba(0,184,217,0.25);color:var(--text)}
+.annotation-popup{
+  display:none;position:absolute;z-index:50;
+  background:var(--card);border:1px solid var(--signal);
+  border-radius:8px;padding:0.5rem 0.75rem;
+  font-size:0.7rem;color:var(--dim);
+  box-shadow:0 6px 20px rgba(0,0,0,0.4);
+  white-space:nowrap;
+}
+.annotation-popup.show{display:flex;gap:0.5rem;align-items:center}
+.ann-btn{font-size:0.65rem;font-weight:600;cursor:pointer;color:var(--signal);background:none;border:none;padding:0.15rem 0.4rem;border-radius:4px;transition:all 0.18s}
+.ann-btn:hover{background:var(--glow-s)}
+
+/* ── SCENARIO FORK (enhanced) ── */
+.scenario-fork-header{font-size:0.65rem;font-weight:700;color:var(--violet);letter-spacing:0.1em;text-transform:uppercase;margin:1rem 0 0.6rem;display:flex;align-items:center;gap:0.5rem}
+.scenario-fork-header::before{content:'⑂';font-size:0.8rem}
+
+/* ── TIMELINE BUILDER ── */
+.timeline-wrap{position:relative;padding-left:1.5rem}
+.timeline-wrap::before{content:'';position:absolute;left:0.35rem;top:0;bottom:0;width:2px;background:linear-gradient(to bottom,var(--signal),var(--violet),transparent)}
+.tl-item{position:relative;margin-bottom:1rem;padding-bottom:0.5rem}
+.tl-dot{position:absolute;left:-1.15rem;top:0.2rem;width:8px;height:8px;border-radius:50%;background:var(--signal);box-shadow:0 0 6px var(--signal);flex-shrink:0}
+.tl-date{font-family:'JetBrains Mono',monospace;font-size:0.6rem;color:var(--signal);margin-bottom:0.2rem}
+.tl-event{font-size:0.78rem;color:var(--text);line-height:1.5}
+.tl-event small{display:block;font-size:0.68rem;color:var(--dim);margin-top:0.15rem}
+
+/* ── SEARCH OVERLAY ── */
+.search-ov{display:none;position:fixed;inset:0;z-index:700;background:rgba(0,0,0,0.85);backdrop-filter:blur(16px);align-items:flex-start;justify-content:center;padding-top:8vh}
+.search-ov.open{display:flex}
+.search-box{width:100%;max-width:640px;animation:slideDown 0.25s ease}
+.search-inp{width:100%;background:var(--card);border:2px solid var(--signal);border-radius:14px;padding:1rem 1.25rem;color:var(--text);font-size:1rem;outline:none;font-family:'Syne',sans-serif}
+.search-inp::placeholder{color:var(--dimmer)}
+.search-results{background:var(--card);border:1px solid var(--edge);border-radius:12px;margin-top:0.5rem;overflow:hidden;max-height:60vh;overflow-y:auto}
+.search-result-item{padding:0.85rem 1.1rem;border-bottom:1px solid var(--line);cursor:pointer;transition:all 0.18s}
+.search-result-item:last-child{border-bottom:none}
+.search-result-item:hover{background:var(--lift)}
+.sri-cat{font-size:0.58rem;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:var(--signal);margin-bottom:0.2rem}
+.sri-title{font-size:0.85rem;color:var(--text);line-height:1.35}
+.sri-meta{font-size:0.62rem;color:var(--dim);margin-top:0.15rem;font-family:'JetBrains Mono',monospace}
+.search-hint{font-size:0.68rem;color:var(--dimmer);text-align:center;padding:1rem}
 </style>
 </head>
 <body>
@@ -556,9 +678,31 @@ textarea,input,select{font-family:'Syne',sans-serif}
   </nav>
   <div class="topbar-r">
     <div class="live-badge"><div class="ldot"></div>LIVE</div>
+    <button class="ibt" title="Search" onclick="openSearch()">🔍</button>
     <button class="ibt" title="Notifications" onclick="toast('🔔 3 new signals in your tracked regions')">🔔</button>
     <button class="ibt" title="Bookmarks" onclick="toast('🔖 Opening saved stories...')">🔖</button>
     <button class="write-cta" onclick="openEditor()">✦ Write &amp; Publish</button>
+    <button class="mob-menu-btn" onclick="toggleMobNav()" id="mobMenuBtn">☰</button>
+  </div>
+</div>
+
+<!-- MOBILE NAV DRAWER -->
+<div class="mob-nav-drawer" id="mobNavDrawer">
+  <div class="mob-nav-item on" onclick="showPage('feed',this);toggleMobNav()">🌐 World Feed</div>
+  <div class="mob-nav-item" onclick="showPage('community',this);toggleMobNav()">💬 Community</div>
+  <div class="mob-nav-item" onclick="showPage('analysis',this);toggleMobNav()">📊 Analysis</div>
+  <div class="mob-nav-item" onclick="showPage('tracker',this);toggleMobNav()">📍 My Tracker</div>
+  <div class="mob-nav-item" onclick="openChat();toggleMobNav()">✦ AI Intel</div>
+  <div class="mob-nav-item" onclick="openEditor();toggleMobNav()">✍️ Write &amp; Publish</div>
+</div>
+
+<!-- SEARCH OVERLAY -->
+<div class="search-ov" id="searchOv" onclick="searchOvOutside(event)">
+  <div class="search-box">
+    <input class="search-inp" id="searchInp" placeholder="Search global events, topics, countries..." oninput="liveSearch(this.value)" onkeydown="if(event.key==='Escape')closeSearch()">
+    <div class="search-results" id="searchResults">
+      <div class="search-hint">Start typing to search the intelligence feed...</div>
+    </div>
   </div>
 </div>
 
@@ -805,6 +949,62 @@ textarea,input,select{font-family:'Syne',sans-serif}
 </div>
 
 </div><!-- end shell -->
+
+<!-- ═══ ANALYSIS PAGE ═══ -->
+<div id="analysisPage" style="display:none;padding:1.25rem 1.5rem;position:relative;z-index:1">
+  <div style="background:var(--card);border:1px solid var(--edge);border-radius:14px;padding:2rem;margin-bottom:1.25rem">
+    <div style="display:flex;align-items:center;gap:0.65rem;margin-bottom:1.5rem">
+      <div class="fp-ai-icon">📊</div>
+      <div><div style="font-size:1rem;font-weight:700">Analysis Dashboard</div><div style="font-size:0.68rem;color:var(--dim)">Live geopolitical indices, comparisons, and AI-powered data tools</div></div>
+    </div>
+    <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:1rem;margin-bottom:1.5rem">
+      <div style="background:var(--surface);border:1px solid var(--line);border-radius:10px;padding:1.1rem">
+        <div style="font-size:0.62rem;font-weight:700;color:var(--dim);letter-spacing:0.1em;text-transform:uppercase;margin-bottom:0.5rem">Global Conflict Index</div>
+        <div style="font-family:'JetBrains Mono',monospace;font-size:2rem;font-weight:500;color:var(--alert)">54.2</div>
+        <div style="font-size:0.68rem;color:var(--alert);margin-bottom:0.75rem">▲ +2.3 this week · High Severity</div>
+        <div style="height:40px;display:flex;align-items:flex-end;gap:2px" id="a_cChart"></div>
+      </div>
+      <div style="background:var(--surface);border:1px solid var(--line);border-radius:10px;padding:1.1rem">
+        <div style="font-size:0.62rem;font-weight:700;color:var(--dim);letter-spacing:0.1em;text-transform:uppercase;margin-bottom:0.5rem">Economic Stress Score</div>
+        <div style="font-family:'JetBrains Mono',monospace;font-size:2rem;font-weight:500;color:var(--gold)">67.8</div>
+        <div style="font-size:0.68rem;color:var(--gold);margin-bottom:0.75rem">▲ +1.1 vs last month · Elevated</div>
+        <div style="height:40px;display:flex;align-items:flex-end;gap:2px" id="a_eChart"></div>
+      </div>
+      <div style="background:var(--surface);border:1px solid var(--line);border-radius:10px;padding:1.1rem">
+        <div style="font-size:0.62rem;font-weight:700;color:var(--dim);letter-spacing:0.1em;text-transform:uppercase;margin-bottom:0.5rem">Climate Risk Index</div>
+        <div style="font-family:'JetBrains Mono',monospace;font-size:2rem;font-weight:500;color:var(--sky)">79.3</div>
+        <div style="font-size:0.68rem;color:var(--sky);margin-bottom:0.75rem">▲ Rising · Critical Zone</div>
+        <div style="height:40px;display:flex;align-items:flex-end;gap:2px" id="a_klChart"></div>
+      </div>
+    </div>
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:1rem">
+      <div style="background:var(--surface);border:1px solid var(--line);border-radius:10px;padding:1.1rem">
+        <div style="font-size:0.68rem;font-weight:700;color:var(--dim);letter-spacing:0.1em;text-transform:uppercase;margin-bottom:0.85rem">Regional Stability — Ranked</div>
+        <div id="a_stabRows"></div>
+      </div>
+      <div style="background:var(--surface);border:1px solid var(--line);border-radius:10px;padding:1.1rem">
+        <div style="font-size:0.68rem;font-weight:700;color:var(--dim);letter-spacing:0.1em;text-transform:uppercase;margin-bottom:0.75rem">AI Deep Analysis</div>
+        <textarea id="analysisQ" placeholder="e.g. Compare economic impact of the Arctic dispute vs BRICS currency shift..." style="background:var(--card);border:1px solid var(--line);border-radius:8px;padding:0.65rem;color:var(--text);font-size:0.8rem;width:100%;resize:none;min-height:80px;outline:none;font-family:'Syne',sans-serif;transition:border-color 0.2s" onfocus="this.style.borderColor='var(--signal)'" onblur="this.style.borderColor='var(--line)'"></textarea>
+        <button onclick="runAnalysisQ()" style="margin-top:0.6rem;background:var(--signal);border:none;color:var(--void);font-size:0.7rem;font-weight:700;padding:0.4rem 1.1rem;border-radius:7px;cursor:pointer;width:100%;font-family:'Syne',sans-serif">✦ Run AI Analysis</button>
+        <div id="analysisResult" style="margin-top:0.75rem;font-size:0.78rem;color:var(--dim);line-height:1.65"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ═══ TRACKER PAGE ═══ -->
+<div id="trackerPage" style="display:none;padding:1.25rem 1.5rem;position:relative;z-index:1">
+  <div style="background:var(--card);border:1px solid var(--edge);border-radius:14px;padding:2rem">
+    <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:1.5rem;flex-wrap:wrap;gap:1rem">
+      <div>
+        <div style="font-size:1.1rem;font-weight:700;margin-bottom:0.25rem">My Intelligence Tracker</div>
+        <div style="font-size:0.72rem;color:var(--dim)">Personalized signals from the countries, regions, and topics you follow</div>
+      </div>
+      <button onclick="toast('+ Tracker customization coming soon')" class="write-cta">+ Add Country / Topic</button>
+    </div>
+    <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(230px,1fr));gap:0.85rem" id="trackerFullGrid"></div>
+  </div>
+</div>
 
 <!-- ═══ EDITOR OVERLAY ═══ -->
 <div class="ov" id="edOv" onclick="ovOutside(event,'edOv')">
@@ -1085,6 +1285,9 @@ async function loadForecastForStory(story){
         <button class="ha" onclick="shareStory()">↗ Share Forecast</button>
         <button class="ha" onclick="openEditor()">✍️ Write Analysis</button>
         <button class="ha" onclick="toast('📊 Saving to analysis board...')">📊 Save to Board</button>
+        <button class="ha" onclick="readAloudForecast()">🎧 Read Aloud</button>
+        <button class="ha" onclick="showEmbedCode()">⟨/⟩ Embed</button>
+        <button class="ha" onclick="exportForecastPDF()">⬇ Export PDF</button>
       </div>
     </div>`;
 }
@@ -1401,8 +1604,10 @@ function showPage(page,el){
   const feed=document.getElementById('feedPage');
   const comm=document.getElementById('communityPage');
   const rr=document.getElementById('rightRail');
-  if(page==='feed'){feed.style.display='';comm.classList.remove('show');rr.style.display=''}
-  else if(page==='community'){feed.style.display='none';comm.classList.add('show');rr.style.display='none'}
+  if(page==='feed'){feed.style.display='';comm.classList.remove('show');rr.style.display='';document.getElementById('analysisPage').style.display='none';document.getElementById('trackerPage').style.display='none'}
+  else if(page==='community'){feed.style.display='none';comm.classList.add('show');rr.style.display='none';document.getElementById('analysisPage').style.display='none';document.getElementById('trackerPage').style.display='none'}
+  else if(page==='analysis'){feed.style.display='none';comm.classList.remove('show');document.getElementById('analysisPage').style.display='';document.getElementById('trackerPage').style.display='none';rr.style.display='none'}
+  else if(page==='tracker'){feed.style.display='none';comm.classList.remove('show');document.getElementById('analysisPage').style.display='none';document.getElementById('trackerPage').style.display='';rr.style.display='none'}
   else{toast('Loading '+page+' view...')}
 }
 
@@ -1430,12 +1635,282 @@ let toastT;
 function toast(msg){const t=document.getElementById('toast');t.textContent=msg;t.classList.add('show');clearTimeout(toastT);toastT=setTimeout(()=>t.classList.remove('show'),2800)}
 function esc(s){return(s||'').replace(/'/g,"\\'").replace(/"/g,'&quot;').replace(/</g,'&lt;')}
 
-// ── INIT ──
+function toast(msg){const t=document.getElementById('toast');t.textContent=msg;t.classList.add('show');clearTimeout(toastT);toastT=setTimeout(()=>t.classList.remove('show'),2800)}
+function esc(s){return(s||'').replace(/'/g,"\\'").replace(/"/g,'&quot;').replace(/</g,'&lt;')}
+
+// ── MOBILE NAV ──
+function toggleMobNav(){
+  const d=document.getElementById('mobNavDrawer');
+  const b=document.getElementById('mobMenuBtn');
+  d.classList.toggle('open');
+  b.textContent=d.classList.contains('open')?'✕':'☰';
+}
+
+// ── SEARCH ──
+function openSearch(){document.getElementById('searchOv').classList.add('open');setTimeout(()=>document.getElementById('searchInp').focus(),100)}
+function closeSearch(){document.getElementById('searchOv').classList.remove('open');document.getElementById('searchInp').value='';document.getElementById('searchResults').innerHTML='<div class="search-hint">Start typing to search the intelligence feed...</div>'}
+function searchOvOutside(e){if(e.target===document.getElementById('searchOv'))closeSearch()}
+function liveSearch(q){
+  const r=document.getElementById('searchResults');
+  if(!q.trim()){r.innerHTML='<div class="search-hint">Start typing to search the intelligence feed...</div>';return}
+  const all=[...GWM.stories,...[
+    {title:'Arctic Sovereignty Crisis Analysis',cat:'Geopolitics',time:'2h ago',region:'Arctic · Russia'},
+    {title:'BRICS+ Currency System — Full Explainer',cat:'Economy',time:'4h ago',region:'Global'},
+    {title:'AI Governance Race — Strategic Briefing',cat:'Technology',time:'6h ago',region:'EU · US'},
+    {title:'Sahel Water Crisis — Displacement Report',cat:'Climate',time:'8h ago',region:'West Africa'},
+    {title:'Taiwan Strait Risk Assessment 2026',cat:'Geopolitics',time:'10h ago',region:'Asia-Pacific'},
+  ]];
+  const results=all.filter(s=>s.title&&s.title.toLowerCase().includes(q.toLowerCase())).slice(0,7);
+  if(!results.length){r.innerHTML=`<div class="search-hint">No results for "${q}" — try broader keywords</div>`;return}
+  r.innerHTML=results.map(s=>`
+    <div class="search-result-item" onclick="closeSearch();toast('Opening: ${esc((s.title||'').substring(0,40))}...')">
+      <div class="sri-cat">${s.cat||'Intelligence'}</div>
+      <div class="sri-title">${s.title}</div>
+      <div class="sri-meta">${s.region||'Global'} · ${s.time||'Recent'}</div>
+    </div>`).join('');
+}
+document.addEventListener('keydown',e=>{
+  if((e.metaKey||e.ctrlKey)&&e.key==='k'){e.preventDefault();openSearch()}
+  if(e.key==='Escape'){closeSearch();const d=document.getElementById('mobNavDrawer');if(d.classList.contains('open'))toggleMobNav()}
+});
+
+// ── PODCAST / READ ALOUD ──
+const PB={playing:false,speed:1,text:'',timer:null};
+const SPEEDS=[1,1.25,1.5,0.75];let spIdx=0;
+
+function readAloudForecast(){
+  const body=document.getElementById('fpBody');
+  const text=body?body.innerText.replace(/[✦⚠️📊↗✍️🎧⟨\/⟩⬇]/g,'').replace(/\s+/g,' ').trim():'';
+  if(!text||text.length<30){toast('Load a forecast first, then use Read Aloud');return}
+  startPodcast(GWM.lastForecastStory||'GeoWorldMedia Forecast',text);
+}
+
+function startPodcast(title,text){
+  stopSpeech();PB.text=text;
+  document.getElementById('pbTitle').textContent=title;
+  document.getElementById('pbStatus').textContent='Ready · ~'+Math.ceil(text.split(' ').length/130/PB.speed)+' min';
+  document.getElementById('podcastBar').classList.add('visible');
+  document.getElementById('pbFill').style.width='0%';
+  PB.playing=false;togglePodcast();
+}
+function togglePodcast(){
+  if(PB.playing){window.speechSynthesis.pause();PB.playing=false;document.getElementById('pbPlayBtn').textContent='▶';document.getElementById('pbStatus').textContent='Paused';clearInterval(PB.timer);return}
+  if(!PB.text){toast('Nothing to read');return}
+  if(window.speechSynthesis.paused){window.speechSynthesis.resume();PB.playing=true;document.getElementById('pbPlayBtn').textContent='⏸';document.getElementById('pbStatus').textContent='Reading aloud...';startPBTimer();return}
+  const u=new SpeechSynthesisUtterance(PB.text);
+  u.rate=PB.speed;u.pitch=1;u.volume=1;
+  u.onstart=()=>{PB.playing=true;document.getElementById('pbPlayBtn').textContent='⏸';document.getElementById('pbStatus').textContent='Reading aloud...';startPBTimer()}
+  u.onend=()=>{PB.playing=false;document.getElementById('pbPlayBtn').textContent='▶';document.getElementById('pbStatus').textContent='Finished ✓';document.getElementById('pbFill').style.width='100%';clearInterval(PB.timer)}
+  u.onerror=()=>{PB.playing=false;document.getElementById('pbPlayBtn').textContent='▶';document.getElementById('pbStatus').textContent='Speech unavailable in this browser'}
+  window.speechSynthesis.speak(u);
+}
+function stopSpeech(){window.speechSynthesis.cancel();PB.playing=false;clearInterval(PB.timer)}
+function restartPodcast(){stopSpeech();document.getElementById('pbFill').style.width='0%';setTimeout(togglePodcast,100)}
+function closePodcast(){stopSpeech();document.getElementById('podcastBar').classList.remove('visible')}
+function adjustSpeed(){spIdx=(spIdx+1)%SPEEDS.length;PB.speed=SPEEDS[spIdx];document.getElementById('pbSpeed').textContent=PB.speed+'×';toast('Speed: '+PB.speed+'×')}
+function seekPodcast(e){const bar=e.currentTarget;const pct=e.offsetX/bar.offsetWidth;document.getElementById('pbFill').style.width=(pct*100)+'%'}
+function startPBTimer(){
+  let el=0;const total=PB.text.split(' ').length/130*60/PB.speed;
+  clearInterval(PB.timer);
+  PB.timer=setInterval(()=>{el+=0.5;document.getElementById('pbFill').style.width=Math.min(100,(el/total)*100)+'%';if(el>=total)clearInterval(PB.timer)},500);
+}
+
+// ── EXPORT PDF ──
+function exportForecastPDF(){
+  const body=document.getElementById('fpBody');
+  if(!body||body.innerText.trim().length<50){toast('Load a forecast first, then export');return}
+  const title=GWM.lastForecastStory||'GeoWorldMedia Forecast';
+  const content=body.innerText.replace(/[✦⚠️🎧⟨\/⟩⬇↗📊✍️]/g,'');
+  const w=window.open('','_blank');
+  if(!w){toast('Allow popups to export PDF');return}
+  w.document.write(`<!DOCTYPE html><html><head><title>${title} — GeoWorldMedia</title>
+  <style>body{font-family:Georgia,serif;max-width:720px;margin:2.5rem auto;color:#1a202c;line-height:1.8;font-size:15px;padding:0 1.5rem}h1{font-size:1.5rem;color:#0a1628;border-bottom:3px solid #0099cc;padding-bottom:0.75rem;margin-bottom:0.5rem}.meta{font-size:0.72rem;color:#666;margin-bottom:2rem;font-family:monospace}.body{white-space:pre-wrap;font-size:0.95rem}.caution{background:#fffbeb;border-left:4px solid #d69e2e;padding:0.85rem 1rem;margin-top:2rem;font-size:0.78rem;color:#744210;line-height:1.6}.footer{margin-top:2rem;font-size:0.68rem;color:#999;border-top:1px solid #e2e8f0;padding-top:0.75rem;display:flex;justify-content:space-between}@media print{body{margin:0.5rem}}</style>
+  </head><body>
+  <h1>${title}</h1>
+  <div class="meta">GeoWorldMedia Intelligence Forecast &nbsp;·&nbsp; ${new Date().toLocaleDateString('en-GB',{day:'numeric',month:'long',year:'numeric'})} &nbsp;·&nbsp; Powered by Claude AI &nbsp;·&nbsp; geo-world-media.vercel.app</div>
+  <div class="body">${content}</div>
+  <div class="caution"><strong>⚠ GeoWorldMedia AI Uncertainty Notice:</strong> This forecast is generated by AI and reflects probabilistic analysis, not factual certainty. Complex geopolitical systems are inherently unpredictable. GeoWorldMedia does not guarantee forecast accuracy. Always consult multiple authoritative sources and professional advisors before making critical decisions.</div>
+  <div class="footer"><span>© 2026 GeoWorldMedia</span><span>For informational and educational purposes only</span></div>
+  </body></html>`);
+  w.document.close();setTimeout(()=>w.print(),600);
+  toast('📄 PDF ready — use browser print dialog to save');
+}
+
+// ── EMBED CODE ──
+function showEmbedCode(){
+  const story=GWM.lastForecastStory||'global intelligence';
+  const code=`<iframe src="https://geo-world-media.vercel.app/?embed=1&story=${encodeURIComponent(story.substring(0,80))}" width="100%" height="520" frameborder="0" style="border-radius:12px;border:1px solid #1e2d45;display:block"></iframe>`;
+  const body=document.getElementById('fpBody');
+  const existing=body.querySelector('.embed-box');
+  if(existing){existing.remove();toast('Embed code hidden');return}
+  const box=document.createElement('div');
+  box.className='embed-box';box.title='Click to copy';
+  box.innerHTML='<strong style="color:var(--dim);font-size:0.62rem;display:block;margin-bottom:0.4rem;font-family:Syne,sans-serif">EMBED CODE — click to copy</strong>'+code;
+  box.onclick=()=>{navigator.clipboard.writeText(code).catch(()=>{});toast('⟨/⟩ Embed code copied to clipboard!')};
+  body.appendChild(box);
+  box.scrollIntoView({behavior:'smooth',block:'nearest'});
+  toast('⟨/⟩ Click the code box to copy');
+}
+
+// ── NEWSLETTER ──
+function subscribeNewsletter(){
+  const em=document.getElementById('nlEmail').value.trim();
+  if(!em||!em.includes('@')){toast('⚠️ Enter a valid email address');return}
+  document.getElementById('nlEmail').value='';
+  toast('✅ Subscribed! Weekly intelligence digest will arrive every Monday.');
+}
+
+// ── SKELETON LOADERS ──
+function showSkeletons(){
+  const shimmerStyle='background:linear-gradient(90deg,var(--faint) 25%,var(--edge) 50%,var(--faint) 75%);background-size:200% 100%;animation:shimmer 1.5s infinite;border-radius:6px';
+  document.getElementById('heroTitle').innerHTML=`<div style="${shimmerStyle};height:22px;width:90%;margin-bottom:8px"></div><div style="${shimmerStyle};height:22px;width:70%"></div>`;
+  document.getElementById('heroDesc').innerHTML=`<div style="${shimmerStyle};height:14px;width:95%;margin-bottom:6px"></div><div style="${shimmerStyle};height:14px;width:85%;margin-bottom:6px"></div><div style="${shimmerStyle};height:14px;width:60%"></div>`;
+  const cg=document.getElementById('cardsGrid');
+  cg.innerHTML=Array.from({length:6},(_,i)=>`
+    <div class="sc" style="animation:fadeUp 0.3s ease ${i*0.06}s both">
+      <div style="${shimmerStyle};height:16px;width:60%;margin-bottom:10px"></div>
+      <div style="${shimmerStyle};height:18px;width:95%;margin-bottom:6px"></div>
+      <div style="${shimmerStyle};height:18px;width:80%;margin-bottom:12px"></div>
+      <div style="${shimmerStyle};height:12px;width:90%;margin-bottom:5px"></div>
+      <div style="${shimmerStyle};height:12px;width:70%"></div>
+    </div>`).join('');
+}
+
+// ── ANALYSIS PAGE ──
+function initAnalysisPage(){
+  const stabs=[['N. America',8.1,'sv-g','sl-g','Stable'],['Europe',7.2,'sv-y','sl-y','Watch'],['East Asia',6.8,'sv-y','sl-y','Watch'],['S. Asia',6.4,'sv-y','sl-y','Watch'],['Africa',5.3,'sv-r','sl-r','Alert'],['Mid. East',4.9,'sv-r','sl-r','Alert']];
+  document.getElementById('a_stabRows').innerHTML=stabs.map(([r,v,vc,lc,l])=>`
+    <div style="display:flex;align-items:center;gap:0.6rem;padding:0.4rem 0;border-bottom:1px solid var(--line)">
+      <div style="flex:1;font-size:0.75rem;color:var(--dim)">${r}</div>
+      <div style="width:80px;height:4px;background:var(--faint);border-radius:2px;overflow:hidden"><div style="width:${v*10}%;height:100%;background:${l==='Stable'?'var(--signal2)':l==='Watch'?'var(--gold)':'var(--alert)'};border-radius:2px"></div></div>
+      <div style="font-family:'JetBrains Mono',monospace;font-size:0.7rem;color:var(--text);width:28px">${v}</div>
+      <div style="font-size:0.58rem;font-weight:700;${l==='Stable'?'color:var(--signal2)':l==='Watch'?'color:var(--gold)':'color:var(--alert)'}">${l}</div>
+    </div>`).join('');
+  ['a_cChart','a_eChart','a_klChart'].forEach((id,ci)=>{
+    const el=document.getElementById(id);if(!el)return;el.innerHTML='';
+    const cls=['hot','gd','bl'][ci];
+    Array.from({length:14},(_,i)=>16+Math.random()*55+(i*2.2)).forEach(v=>{
+      const b=document.createElement('div');b.className='ab '+cls;const mx=85;
+      b.style.cssText='flex:1;border-radius:2px 2px 0 0;min-width:4px;height:'+Math.max(6,v/mx*100)+'%;background:'+(cls==='hot'?'var(--alert)':cls==='gd'?'var(--gold)':'var(--signal)');
+      el.appendChild(b);
+    });
+  });
+}
+
+async function runAnalysisQ(){
+  const q=document.getElementById('analysisQ').value.trim();
+  if(!q){toast('Enter an analysis question first');return}
+  const res=document.getElementById('analysisResult');
+  res.innerHTML='<div class="fp-loading" style="justify-content:flex-start"><div class="tdots"><span></span><span></span><span></span></div><span style="margin-left:0.5rem">Analyzing...</span></div>';
+  const reply=await callClaude([{role:'user',content:q}],'You are GeoWorldMedia\'s analysis AI. Provide concise, expert geopolitical analysis in 2-3 paragraphs. Be specific with data and context.');
+  res.innerHTML='<div style="font-size:0.78rem;color:var(--dim);line-height:1.72">'+reply.replace(/\n\n/g,'</div><div style="font-size:0.78rem;color:var(--dim);line-height:1.72;margin-top:0.6rem">').replace(/\*\*/g,'<b>').replace(/\*/g,'<i>')+'</div>';
+}
+
+// ── TRACKER PAGE ──
+function initTrackerPage(){
+  const items=[
+    {f:'🇮🇳',n:'India',signals:4,cls:'ts-g',status:'Stable',topics:['Economy','Politics','Technology']},
+    {f:'🇪🇺',n:'European Union',signals:9,cls:'ts-y',status:'Watch',topics:['Energy','Defense','Trade']},
+    {f:'🇺🇸',n:'United States',signals:6,cls:'ts-y',status:'Watch',topics:['Elections','Economy','AI Policy']},
+    {f:'🇨🇳',n:'China',signals:14,cls:'ts-r',status:'Alert',topics:['Taiwan','Economy','Technology']},
+    {f:'🇷🇺',n:'Russia',signals:11,cls:'ts-r',status:'Alert',topics:['Ukraine','Arctic','Energy']},
+    {f:'🌡️',n:'Climate Risk',signals:7,cls:'ts-y',status:'Watch',topics:['Arctic','Sahel','Pacific']},
+    {f:'⚙️',n:'AI Governance',signals:5,cls:'ts-g',status:'Stable',topics:['EU AI Act','US Policy','China AI']},
+    {f:'🌊',n:'BRICS+ Currency',signals:8,cls:'ts-r',status:'Alert',topics:['Dollar','Trade','Finance']},
+  ];
+  document.getElementById('trackerFullGrid').innerHTML=items.map(t=>`
+    <div style="background:var(--surface);border:1px solid var(--line);border-radius:10px;padding:1rem;cursor:pointer;transition:all 0.2s" onclick="toast('${t.n}: ${t.signals} new signals today')" onmouseover="this.style.borderColor='var(--edge)'" onmouseout="this.style.borderColor='var(--line)'">
+      <div style="display:flex;align-items:center;gap:0.6rem;margin-bottom:0.75rem">
+        <span style="font-size:1.2rem">${t.f}</span>
+        <div style="flex:1"><div style="font-size:0.85rem;font-weight:700;color:var(--text)">${t.n}</div><div style="font-size:0.62rem;color:var(--dim)">${t.signals} new signals</div></div>
+        <div style="width:8px;height:8px;border-radius:50%;${t.cls==='ts-g'?'background:var(--signal2);box-shadow:0 0 6px var(--signal2)':t.cls==='ts-y'?'background:var(--gold);box-shadow:0 0 6px var(--gold)':'background:var(--alert);box-shadow:0 0 6px var(--alert)'}"></div>
+      </div>
+      <div style="font-size:0.62rem;font-weight:700;${t.cls==='ts-g'?'color:var(--signal2)':t.cls==='ts-y'?'color:var(--gold)':'color:var(--alert)'};margin-bottom:0.5rem">● ${t.status}</div>
+      <div style="display:flex;gap:0.3rem;flex-wrap:wrap">
+        ${t.topics.map(tp=>`<span style="font-size:0.58rem;background:var(--faint);color:var(--dimmer);padding:0.1rem 0.45rem;border-radius:4px">${tp}</span>`).join('')}
+      </div>
+      <div style="margin-top:0.75rem;display:flex;gap:0.4rem">
+        <button onclick="event.stopPropagation();loadForecastForStory('${t.n} geopolitical situation');showPage('feed',document.querySelector('.tnav'))" style="flex:1;font-size:0.6rem;font-weight:600;padding:0.25rem 0;border-radius:5px;background:var(--glow-s);border:1px solid rgba(0,184,217,0.2);color:var(--signal);cursor:pointer">📊 Forecast</button>
+        <button onclick="event.stopPropagation();toast('Removing ${t.n} from tracker')" style="font-size:0.6rem;padding:0.25rem 0.5rem;border-radius:5px;background:transparent;border:1px solid var(--line);color:var(--dim);cursor:pointer">✕</button>
+      </div>
+    </div>`).join('');
+}
 document.addEventListener('DOMContentLoaded',()=>{
+  showSkeletons();
   renderSidebar();
   fetchNews();
+  initAnalysisPage();
+  initTrackerPage();
   setInterval(()=>{fetchNews();document.getElementById('brkBadge').textContent=Math.floor(Math.random()*5+5)},5*60*1000);
 });
 </script>
+<!-- ═══ PODCAST / READ ALOUD BAR ═══ -->
+<div class="podcast-bar" id="podcastBar">
+  <div class="pb-info">
+    <div class="pb-title" id="pbTitle">Ready to read</div>
+    <div class="pb-status" id="pbStatus">GeoWorldMedia Audio Intelligence</div>
+  </div>
+  <div class="pb-progress" onclick="seekPodcast(event)" id="pbProgress">
+    <div class="pb-progress-fill" id="pbFill" style="width:0%"></div>
+  </div>
+  <div class="pb-controls">
+    <button class="pb-btn" onclick="adjustSpeed()" id="pbSpeed" title="Playback speed">1×</button>
+    <button class="pb-btn" onclick="restartPodcast()" title="Restart">⏮</button>
+    <button class="pb-btn pb-play" onclick="togglePodcast()" id="pbPlayBtn" title="Play/Pause">▶</button>
+    <button class="pb-btn" onclick="closePodcast()" title="Close">✕</button>
+  </div>
+</div>
+
+<!-- ═══ FOOTER ═══ -->
+<footer class="gwm-footer">
+  <div class="footer-grid">
+    <div>
+      <div class="footer-brand">🌐 GeoWorldMedia</div>
+      <div class="footer-desc">The world's most trusted platform for understanding global shifts. Real-time intelligence, AI-powered forecasting, and a global community of analysts.</div>
+      <div class="footer-col-title" style="margin-top:0.5rem">Stay Informed</div>
+      <div class="newsletter-row">
+        <input class="nl-input" id="nlEmail" type="email" placeholder="your@email.com">
+        <button class="nl-btn" onclick="subscribeNewsletter()">Subscribe →</button>
+      </div>
+    </div>
+    <div>
+      <div class="footer-col-title">Platform</div>
+      <span class="footer-link" onclick="showPage('feed',document.querySelector('.tnav'))">World Feed</span>
+      <span class="footer-link" onclick="showPage('community',document.querySelector('.tnav:nth-child(2)'))">Community</span>
+      <span class="footer-link" onclick="showPage('analysis',document.querySelector('.tnav:nth-child(3)'))">Analysis Dashboard</span>
+      <span class="footer-link" onclick="showPage('tracker',document.querySelector('.tnav:nth-child(4)'))">My Tracker</span>
+      <span class="footer-link" onclick="openEditor()">Write &amp; Publish</span>
+      <span class="footer-link" onclick="openChat()">AI Intelligence Chat</span>
+    </div>
+    <div>
+      <div class="footer-col-title">Intelligence</div>
+      <span class="footer-link" onclick="toast('Geopolitics feed loading...')">Geopolitics</span>
+      <span class="footer-link" onclick="toast('Economy feed loading...')">Economy</span>
+      <span class="footer-link" onclick="toast('Climate feed loading...')">Climate</span>
+      <span class="footer-link" onclick="toast('Technology feed loading...')">Technology</span>
+      <span class="footer-link" onclick="toast('Conflict tracker loading...')">Conflict Tracker</span>
+      <span class="footer-link" onclick="toast('Stability Index loading...')">Stability Index</span>
+    </div>
+    <div>
+      <div class="footer-col-title">Company</div>
+      <span class="footer-link" onclick="toast('About GeoWorldMedia')">About</span>
+      <span class="footer-link" onclick="toast('Editorial guidelines loading...')">Editorial Guidelines</span>
+      <span class="footer-link" onclick="toast('AI ethics policy loading...')">AI Ethics Policy</span>
+      <span class="footer-link" onclick="toast('Privacy policy loading...')">Privacy Policy</span>
+      <span class="footer-link" onclick="toast('Contact us loading...')">Contact</span>
+      <span class="footer-link" onclick="toast('API access coming soon')">API Access</span>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <div class="footer-copy">© 2026 GeoWorldMedia · AI forecasts carry uncertainty — always verify critical decisions with professionals.</div>
+    <div class="footer-socials">
+      <div class="fsoc" onclick="share2('Twitter/X')" title="Follow on X">𝕏</div>
+      <div class="fsoc" onclick="share2('LinkedIn')" title="Follow on LinkedIn">in</div>
+      <div class="fsoc" onclick="share2('Telegram')" title="Join Telegram">✈</div>
+      <div class="fsoc" onclick="share2('WhatsApp')" title="WhatsApp channel">💬</div>
+    </div>
+  </div>
+</footer>
+
 </body>
 </html>
