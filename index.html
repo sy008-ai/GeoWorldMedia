@@ -1,0 +1,1005 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>TechInsight — AI-Powered Company Intelligence</title>
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Sans:ital,wght@0,300;0,400;0,500;1,300&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #050810;
+    --surface: #0c1120;
+    --surface2: #111827;
+    --border: #1e2d45;
+    --accent: #00e5ff;
+    --accent2: #7c3aed;
+    --accent3: #f59e0b;
+    --text: #e2e8f0;
+    --muted: #64748b;
+    --green: #10b981;
+    --red: #ef4444;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    background: var(--bg);
+    color: var(--text);
+    font-family: 'DM Sans', sans-serif;
+    min-height: 100vh;
+    overflow-x: hidden;
+  }
+
+  /* Background grid */
+  body::before {
+    content: '';
+    position: fixed;
+    inset: 0;
+    background-image:
+      linear-gradient(rgba(0,229,255,0.03) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(0,229,255,0.03) 1px, transparent 1px);
+    background-size: 40px 40px;
+    pointer-events: none;
+    z-index: 0;
+  }
+
+  /* Glow orbs */
+  .orb1, .orb2 {
+    position: fixed;
+    border-radius: 50%;
+    filter: blur(120px);
+    pointer-events: none;
+    z-index: 0;
+    opacity: 0.15;
+  }
+  .orb1 { width: 500px; height: 500px; background: var(--accent2); top: -200px; right: -100px; }
+  .orb2 { width: 400px; height: 400px; background: var(--accent); bottom: -100px; left: -100px; }
+
+  /* HEADER */
+  header {
+    position: relative;
+    z-index: 10;
+    padding: 24px 40px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border-bottom: 1px solid var(--border);
+    backdrop-filter: blur(10px);
+    background: rgba(5,8,16,0.8);
+    position: sticky;
+    top: 0;
+  }
+
+  .logo {
+    font-family: 'Syne', sans-serif;
+    font-weight: 800;
+    font-size: 1.4rem;
+    letter-spacing: -0.5px;
+  }
+  .logo span { color: var(--accent); }
+
+  .logo-tag {
+    font-family: 'DM Mono', monospace;
+    font-size: 0.65rem;
+    color: var(--muted);
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    margin-top: 2px;
+  }
+
+  .header-badges {
+    display: flex;
+    gap: 8px;
+  }
+  .badge {
+    padding: 4px 12px;
+    border-radius: 20px;
+    font-size: 0.7rem;
+    font-weight: 500;
+    letter-spacing: 0.5px;
+    text-transform: uppercase;
+  }
+  .badge-cyan { background: rgba(0,229,255,0.1); color: var(--accent); border: 1px solid rgba(0,229,255,0.2); }
+  .badge-purple { background: rgba(124,58,237,0.1); color: #a78bfa; border: 1px solid rgba(124,58,237,0.2); }
+  .badge-live {
+    background: rgba(16,185,129,0.1);
+    color: var(--green);
+    border: 1px solid rgba(16,185,129,0.2);
+    display: flex; align-items: center; gap: 5px;
+  }
+  .badge-live::before {
+    content: '';
+    width: 6px; height: 6px;
+    background: var(--green);
+    border-radius: 50%;
+    animation: pulse 1.5s infinite;
+  }
+  @keyframes pulse {
+    0%, 100% { opacity: 1; transform: scale(1); }
+    50% { opacity: 0.5; transform: scale(0.8); }
+  }
+
+  /* HERO */
+  .hero {
+    position: relative;
+    z-index: 1;
+    text-align: center;
+    padding: 80px 40px 60px;
+  }
+
+  .hero-eyebrow {
+    font-family: 'DM Mono', monospace;
+    font-size: 0.72rem;
+    color: var(--accent);
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    margin-bottom: 20px;
+    opacity: 0;
+    animation: fadeUp 0.6s 0.1s forwards;
+  }
+
+  .hero h1 {
+    font-family: 'Syne', sans-serif;
+    font-size: clamp(2.5rem, 6vw, 4.5rem);
+    font-weight: 800;
+    line-height: 1.05;
+    letter-spacing: -2px;
+    margin-bottom: 20px;
+    opacity: 0;
+    animation: fadeUp 0.6s 0.2s forwards;
+  }
+
+  .hero h1 .highlight {
+    background: linear-gradient(135deg, var(--accent), var(--accent2));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  .hero p {
+    color: var(--muted);
+    font-size: 1.05rem;
+    max-width: 560px;
+    margin: 0 auto 40px;
+    line-height: 1.7;
+    opacity: 0;
+    animation: fadeUp 0.6s 0.3s forwards;
+  }
+
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  /* SEARCH BAR */
+  .search-container {
+    max-width: 680px;
+    margin: 0 auto;
+    opacity: 0;
+    animation: fadeUp 0.6s 0.4s forwards;
+  }
+
+  .search-bar {
+    display: flex;
+    align-items: center;
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 16px;
+    padding: 6px 6px 6px 20px;
+    gap: 12px;
+    transition: border-color 0.3s, box-shadow 0.3s;
+  }
+  .search-bar:focus-within {
+    border-color: var(--accent);
+    box-shadow: 0 0 0 3px rgba(0,229,255,0.08), 0 0 30px rgba(0,229,255,0.06);
+  }
+
+  .search-icon {
+    color: var(--muted);
+    font-size: 1.1rem;
+    flex-shrink: 0;
+  }
+
+  .search-bar input {
+    flex: 1;
+    background: none;
+    border: none;
+    outline: none;
+    color: var(--text);
+    font-family: 'DM Sans', sans-serif;
+    font-size: 1rem;
+    padding: 10px 0;
+  }
+  .search-bar input::placeholder { color: var(--muted); }
+
+  .search-btn {
+    background: linear-gradient(135deg, var(--accent), #0099cc);
+    color: #000;
+    border: none;
+    border-radius: 10px;
+    padding: 12px 24px;
+    font-family: 'Syne', sans-serif;
+    font-weight: 700;
+    font-size: 0.9rem;
+    cursor: pointer;
+    transition: all 0.2s;
+    white-space: nowrap;
+  }
+  .search-btn:hover { transform: scale(1.03); box-shadow: 0 0 20px rgba(0,229,255,0.3); }
+  .search-btn:disabled { opacity: 0.5; cursor: not-allowed; transform: none; }
+
+  /* QUICK TAGS */
+  .quick-tags {
+    display: flex;
+    gap: 8px;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin-top: 16px;
+  }
+  .quick-tag {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    color: var(--muted);
+    padding: 5px 14px;
+    border-radius: 20px;
+    font-size: 0.8rem;
+    cursor: pointer;
+    transition: all 0.2s;
+  }
+  .quick-tag:hover { border-color: var(--accent); color: var(--accent); background: rgba(0,229,255,0.05); }
+
+  /* MAIN CONTENT */
+  .main {
+    position: relative;
+    z-index: 1;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 40px 40px 80px;
+  }
+
+  /* LOADING */
+  .loading-state {
+    display: none;
+    text-align: center;
+    padding: 60px 20px;
+  }
+  .loading-state.active { display: block; }
+
+  .loader {
+    width: 48px;
+    height: 48px;
+    border: 2px solid var(--border);
+    border-top-color: var(--accent);
+    border-radius: 50%;
+    animation: spin 0.8s linear infinite;
+    margin: 0 auto 20px;
+  }
+  @keyframes spin { to { transform: rotate(360deg); } }
+
+  .loading-text {
+    font-family: 'DM Mono', monospace;
+    font-size: 0.8rem;
+    color: var(--accent);
+    letter-spacing: 2px;
+  }
+
+  .loading-steps {
+    margin-top: 16px;
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    align-items: center;
+  }
+  .loading-step {
+    font-size: 0.8rem;
+    color: var(--muted);
+    opacity: 0;
+    transition: opacity 0.4s;
+  }
+  .loading-step.active { opacity: 1; color: var(--text); }
+  .loading-step.done { opacity: 0.4; }
+
+  /* EMPTY STATE */
+  .empty-state {
+    text-align: center;
+    padding: 60px 20px;
+  }
+  .empty-icon {
+    font-size: 3rem;
+    margin-bottom: 16px;
+    opacity: 0.4;
+  }
+  .empty-state h3 {
+    font-family: 'Syne', sans-serif;
+    font-size: 1.2rem;
+    margin-bottom: 8px;
+    color: var(--text);
+  }
+  .empty-state p { color: var(--muted); font-size: 0.9rem; }
+
+  /* RESULTS */
+  .results { display: none; }
+  .results.active { display: block; }
+
+  .company-header {
+    display: flex;
+    align-items: flex-start;
+    gap: 20px;
+    margin-bottom: 40px;
+    padding: 28px;
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 20px;
+    animation: fadeUp 0.5s forwards;
+  }
+
+  .company-avatar {
+    width: 64px;
+    height: 64px;
+    border-radius: 16px;
+    background: linear-gradient(135deg, var(--accent2), var(--accent));
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: 'Syne', sans-serif;
+    font-size: 1.6rem;
+    font-weight: 800;
+    color: white;
+    flex-shrink: 0;
+  }
+
+  .company-meta { flex: 1; }
+  .company-name {
+    font-family: 'Syne', sans-serif;
+    font-size: 1.8rem;
+    font-weight: 800;
+    letter-spacing: -0.5px;
+    margin-bottom: 6px;
+  }
+  .company-tagline { color: var(--muted); font-size: 0.95rem; line-height: 1.6; }
+
+  .company-stats {
+    display: flex;
+    gap: 20px;
+    margin-top: 16px;
+    flex-wrap: wrap;
+  }
+  .stat {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+  }
+  .stat-val {
+    font-family: 'Syne', sans-serif;
+    font-weight: 700;
+    font-size: 1.1rem;
+    color: var(--accent);
+  }
+  .stat-label { font-size: 0.72rem; color: var(--muted); text-transform: uppercase; letter-spacing: 0.5px; }
+
+  /* SECTIONS GRID */
+  .sections-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+    margin-bottom: 20px;
+  }
+  .section-full { grid-column: 1 / -1; }
+
+  @media (max-width: 768px) {
+    .sections-grid { grid-template-columns: 1fr; }
+    .section-full { grid-column: 1; }
+    header { padding: 16px 20px; }
+    .hero { padding: 50px 20px 40px; }
+    .main { padding: 20px 20px 60px; }
+    .company-header { flex-direction: column; }
+    .header-badges { display: none; }
+  }
+
+  /* CARD */
+  .card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 16px;
+    padding: 24px;
+    animation: fadeUp 0.5s forwards;
+    opacity: 0;
+  }
+
+  .card:nth-child(1) { animation-delay: 0.05s; }
+  .card:nth-child(2) { animation-delay: 0.10s; }
+  .card:nth-child(3) { animation-delay: 0.15s; }
+  .card:nth-child(4) { animation-delay: 0.20s; }
+  .card:nth-child(5) { animation-delay: 0.25s; }
+  .card:nth-child(6) { animation-delay: 0.30s; }
+  .card:nth-child(7) { animation-delay: 0.35s; }
+
+  .card-header {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 18px;
+  }
+  .card-icon {
+    width: 36px;
+    height: 36px;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1rem;
+    flex-shrink: 0;
+  }
+  .icon-cyan { background: rgba(0,229,255,0.1); }
+  .icon-purple { background: rgba(124,58,237,0.1); }
+  .icon-amber { background: rgba(245,158,11,0.1); }
+  .icon-green { background: rgba(16,185,129,0.1); }
+  .icon-red { background: rgba(239,68,68,0.1); }
+  .icon-blue { background: rgba(59,130,246,0.1); }
+  .icon-pink { background: rgba(236,72,153,0.1); }
+
+  .card-title {
+    font-family: 'Syne', sans-serif;
+    font-weight: 700;
+    font-size: 0.95rem;
+    letter-spacing: 0.3px;
+  }
+
+  .card-content {
+    color: var(--text);
+    font-size: 0.88rem;
+    line-height: 1.75;
+  }
+
+  /* Markdown-like rendering */
+  .card-content h3 {
+    font-family: 'Syne', sans-serif;
+    font-size: 0.9rem;
+    font-weight: 700;
+    color: var(--accent);
+    margin: 14px 0 6px;
+  }
+  .card-content h3:first-child { margin-top: 0; }
+
+  .card-content p { margin-bottom: 10px; }
+  .card-content p:last-child { margin-bottom: 0; }
+
+  .card-content ul {
+    padding-left: 16px;
+    margin-bottom: 10px;
+  }
+  .card-content ul li {
+    margin-bottom: 5px;
+    color: var(--muted);
+  }
+  .card-content ul li strong { color: var(--text); }
+
+  .card-content strong { color: var(--accent); font-weight: 600; }
+
+  /* METRIC ITEMS */
+  .metric-item {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px 0;
+    border-bottom: 1px solid var(--border);
+  }
+  .metric-item:last-child { border-bottom: none; }
+  .metric-label { font-size: 0.85rem; color: var(--muted); }
+  .metric-value {
+    font-family: 'DM Mono', monospace;
+    font-size: 0.85rem;
+    color: var(--text);
+    font-weight: 500;
+  }
+  .metric-value.up { color: var(--green); }
+  .metric-value.down { color: var(--red); }
+
+  /* TECH PILLS */
+  .tech-pills {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-top: 4px;
+  }
+  .tech-pill {
+    background: rgba(0,229,255,0.06);
+    border: 1px solid rgba(0,229,255,0.15);
+    color: var(--accent);
+    padding: 4px 12px;
+    border-radius: 20px;
+    font-size: 0.78rem;
+    font-family: 'DM Mono', monospace;
+  }
+  .tech-pill.purple {
+    background: rgba(124,58,237,0.06);
+    border-color: rgba(124,58,237,0.2);
+    color: #a78bfa;
+  }
+  .tech-pill.amber {
+    background: rgba(245,158,11,0.06);
+    border-color: rgba(245,158,11,0.2);
+    color: var(--accent3);
+  }
+
+  /* COMPETITOR CARDS */
+  .competitor-list { display: flex; flex-direction: column; gap: 10px; }
+  .competitor-item {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 12px;
+    background: var(--surface2);
+    border-radius: 10px;
+    border: 1px solid var(--border);
+  }
+  .competitor-rank {
+    font-family: 'DM Mono', monospace;
+    font-size: 0.75rem;
+    color: var(--muted);
+    width: 20px;
+    text-align: center;
+    flex-shrink: 0;
+  }
+  .competitor-name {
+    flex: 1;
+    font-size: 0.88rem;
+    font-weight: 500;
+  }
+  .competitor-tag {
+    font-size: 0.72rem;
+    padding: 2px 8px;
+    border-radius: 10px;
+    background: rgba(124,58,237,0.1);
+    color: #a78bfa;
+  }
+
+  /* ARTICLE CARDS */
+  .article-list { display: flex; flex-direction: column; gap: 12px; }
+  .article-item {
+    padding: 14px;
+    background: var(--surface2);
+    border-radius: 12px;
+    border: 1px solid var(--border);
+    cursor: pointer;
+    transition: border-color 0.2s;
+  }
+  .article-item:hover { border-color: var(--accent); }
+  .article-title {
+    font-size: 0.88rem;
+    font-weight: 500;
+    margin-bottom: 4px;
+    line-height: 1.4;
+  }
+  .article-meta {
+    font-size: 0.75rem;
+    color: var(--muted);
+    display: flex;
+    gap: 8px;
+  }
+  .article-tag {
+    background: rgba(245,158,11,0.1);
+    color: var(--accent3);
+    padding: 1px 8px;
+    border-radius: 10px;
+    font-size: 0.7rem;
+  }
+
+  /* OPPORTUNITY ITEMS */
+  .opportunity-item {
+    padding: 12px 14px;
+    background: var(--surface2);
+    border-radius: 10px;
+    border-left: 3px solid var(--green);
+    margin-bottom: 10px;
+    font-size: 0.87rem;
+    line-height: 1.6;
+  }
+  .opportunity-item.amber { border-left-color: var(--accent3); }
+  .opportunity-item.cyan { border-left-color: var(--accent); }
+  .opportunity-item:last-child { margin-bottom: 0; }
+  .opportunity-title {
+    font-weight: 600;
+    font-size: 0.85rem;
+    margin-bottom: 4px;
+    color: var(--green);
+  }
+  .opportunity-item.amber .opportunity-title { color: var(--accent3); }
+  .opportunity-item.cyan .opportunity-title { color: var(--accent); }
+  .opportunity-desc { color: var(--muted); font-size: 0.82rem; }
+
+  /* FOOTER */
+  footer {
+    position: relative;
+    z-index: 1;
+    text-align: center;
+    padding: 30px;
+    border-top: 1px solid var(--border);
+    color: var(--muted);
+    font-size: 0.78rem;
+    font-family: 'DM Mono', monospace;
+  }
+
+  /* ERROR */
+  .error-toast {
+    background: rgba(239,68,68,0.1);
+    border: 1px solid rgba(239,68,68,0.3);
+    color: #fca5a5;
+    padding: 14px 20px;
+    border-radius: 12px;
+    margin-bottom: 20px;
+    font-size: 0.88rem;
+    display: none;
+  }
+  .error-toast.active { display: block; }
+
+  /* Divider */
+  .section-divider {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin: 32px 0 24px;
+  }
+  .section-divider-line { flex: 1; height: 1px; background: var(--border); }
+  .section-divider-label {
+    font-family: 'DM Mono', monospace;
+    font-size: 0.7rem;
+    color: var(--muted);
+    letter-spacing: 2px;
+    text-transform: uppercase;
+  }
+</style>
+</head>
+<body>
+
+<div class="orb1"></div>
+<div class="orb2"></div>
+
+<header>
+  <div>
+    <div class="logo">Tech<span>Insight</span></div>
+    <div class="logo-tag">AI-Powered Intelligence</div>
+  </div>
+  <div class="header-badges">
+    <span class="badge badge-cyan">Fortune 500</span>
+    <span class="badge badge-purple">AI & Tech</span>
+    <span class="badge badge-live">Live Analysis</span>
+  </div>
+</header>
+
+<section class="hero">
+  <div class="hero-eyebrow">Powered by OpenRouter AI</div>
+  <h1>Company Intelligence<br><span class="highlight">Automated & Instant</span></h1>
+  <p>Deep-dive analysis on any Fortune 500, tech giant, or startup — competitive landscape, founder profiles, market opportunities, and more.</p>
+
+  <div class="search-container">
+    <div class="search-bar">
+      <span class="search-icon">🔍</span>
+      <input type="text" id="searchInput" placeholder="Search any company — Apple, OpenAI, Tesla, Reliance..." />
+      <button class="search-btn" id="searchBtn" onclick="analyzeCompany()">Analyze →</button>
+    </div>
+    <div class="quick-tags">
+      <span class="quick-tag" onclick="quickSearch('Apple')">Apple</span>
+      <span class="quick-tag" onclick="quickSearch('OpenAI')">OpenAI</span>
+      <span class="quick-tag" onclick="quickSearch('Tesla')">Tesla</span>
+      <span class="quick-tag" onclick="quickSearch('Google')">Google</span>
+      <span class="quick-tag" onclick="quickSearch('Reliance Industries')">Reliance</span>
+      <span class="quick-tag" onclick="quickSearch('Microsoft')">Microsoft</span>
+      <span class="quick-tag" onclick="quickSearch('Anthropic')">Anthropic</span>
+    </div>
+  </div>
+</section>
+
+<main class="main">
+  <div class="error-toast" id="errorToast"></div>
+
+  <!-- Loading -->
+  <div class="loading-state" id="loadingState">
+    <div class="loader"></div>
+    <div class="loading-text">ANALYZING COMPANY</div>
+    <div class="loading-steps">
+      <div class="loading-step" id="step1">⚡ Fetching company overview...</div>
+      <div class="loading-step" id="step2">📊 Running competitive analysis...</div>
+      <div class="loading-step" id="step3">💡 Identifying market opportunities...</div>
+      <div class="loading-step" id="step4">🛠️ Mapping technology stack...</div>
+      <div class="loading-step" id="step5">📰 Generating insights & articles...</div>
+    </div>
+  </div>
+
+  <!-- Empty State -->
+  <div class="empty-state" id="emptyState">
+    <div class="empty-icon">🏢</div>
+    <h3>Search for any company</h3>
+    <p>Get instant AI-powered intelligence — from revenue metrics<br>to founder profiles and competitive landscape</p>
+  </div>
+
+  <!-- Results -->
+  <div class="results" id="results"></div>
+</main>
+
+<footer>
+  TechInsight · Powered by OpenRouter · Built for AI & Fortune 500 Intelligence
+</footer>
+
+<script>
+const OPENROUTER_KEY = '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';
+
+function quickSearch(name) {
+  document.getElementById('searchInput').value = name;
+  analyzeCompany();
+}
+
+document.getElementById('searchInput').addEventListener('keydown', function(e) {
+  if (e.key === 'Enter') analyzeCompany();
+});
+
+async function callOpenRouter(systemPrompt, userPrompt) {
+  const response = await fetch('https://openrouter.ai/api/v1/chat/completions', {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json',
+      'Authorization': `Bearer ${OPENROUTER_KEY}`,
+      'HTTP-Referer': 'https://techinsight.app',
+      'X-Title': 'TechInsight'
+    },
+    body: JSON.stringify({
+      model: 'meta-llama/llama-3.3-70b-instruct',
+      messages: [
+        { role: 'system', content: systemPrompt },
+        { role: 'user', content: userPrompt }
+      ],
+      temperature: 0.7,
+      max_tokens: 2000
+    })
+  });
+
+  if (!response.ok) {
+    const err = await response.json();
+    throw new Error(err.error?.message || 'API error');
+  }
+
+  const data = await response.json();
+  return data.choices[0].message.content;
+}
+
+function animateSteps(steps, delay = 900) {
+  steps.forEach((id, i) => {
+    setTimeout(() => {
+      const el = document.getElementById(id);
+      if (el) {
+        // Mark previous as done
+        if (i > 0) document.getElementById(steps[i-1]).classList.replace('active','done');
+        el.classList.add('active');
+      }
+    }, i * delay);
+  });
+}
+
+async function analyzeCompany() {
+  const query = document.getElementById('searchInput').value.trim();
+  if (!query) return;
+
+  const btn = document.getElementById('searchBtn');
+  btn.disabled = true;
+  btn.textContent = 'Analyzing...';
+
+  document.getElementById('emptyState').style.display = 'none';
+  document.getElementById('results').classList.remove('active');
+  document.getElementById('errorToast').classList.remove('active');
+
+  const loadingEl = document.getElementById('loadingState');
+  loadingEl.classList.add('active');
+
+  // Reset steps
+  ['step1','step2','step3','step4','step5'].forEach(id => {
+    const el = document.getElementById(id);
+    el.classList.remove('active','done');
+  });
+  animateSteps(['step1','step2','step3','step4','step5'], 800);
+
+  try {
+    const systemPrompt = `You are TechInsight, an expert business intelligence analyst specializing in Fortune 500, technology, and AI companies. 
+    You provide detailed, data-rich, and insightful analysis. Always include specific numbers, dates, and real facts. 
+    Be concise but comprehensive. Use bullet points and clear structure. Format with ### for section headers within sections.`;
+
+    const [overview, competitive, opportunities, tech, articles] = await Promise.all([
+      callOpenRouter(systemPrompt, `Provide a comprehensive overview of ${query}. Include:
+        1. Company description (2-3 sentences)
+        2. Key stats: Founded year, HQ, employees count, revenue/valuation
+        3. Founder(s) & CEO: who they are, their vision, key quotes
+        4. Products & Services (list top 3-5)
+        5. Social impact on society
+        6. Future plans / roadmap
+        Keep it structured and data-rich.`),
+
+      callOpenRouter(systemPrompt, `Provide competitive analysis for ${query}. Include:
+        1. Top 5 direct competitors with their key differentiators
+        2. Market share breakdown (with % if available)
+        3. How ${query}'s products/services compare vs competitors (table-like format)
+        4. ${query}'s competitive advantages
+        5. Where competitors are beating ${query}
+        Use specific numbers and metrics.`),
+
+      callOpenRouter(systemPrompt, `Identify market opportunities for ${query}. Include:
+        1. 3 current growth opportunities in their market
+        2. Emerging market gaps they can exploit
+        3. Future market predictions (with timeline)
+        4. Strategic recommendations
+        Be specific and actionable with data.`),
+
+      callOpenRouter(systemPrompt, `List the technologies used by ${query}. Include:
+        1. Core tech stack / infrastructure
+        2. AI/ML technologies they're using or developing
+        3. Proprietary technologies
+        4. Developer tools & platforms they offer
+        5. Recent tech investments or acquisitions
+        Format as clear categories.`),
+
+      callOpenRouter(systemPrompt, `Generate 4 engaging article headlines + 2-sentence summaries about ${query}. Cover:
+        1. A recent major development or product launch
+        2. Their impact on the industry
+        3. Founder story / leadership insight
+        4. Future prediction / analysis
+        Format as: TITLE: [title] | SUMMARY: [summary] | TAG: [category]`)
+    ]);
+
+    loadingEl.classList.remove('active');
+    renderResults(query, overview, competitive, opportunities, tech, articles);
+
+  } catch (err) {
+    loadingEl.classList.remove('active');
+    const toast = document.getElementById('errorToast');
+    toast.textContent = '⚠️ Error: ' + err.message;
+    toast.classList.add('active');
+    document.getElementById('emptyState').style.display = 'block';
+  }
+
+  btn.disabled = false;
+  btn.textContent = 'Analyze →';
+}
+
+function formatContent(text) {
+  return text
+    .replace(/###\s+(.+)/g, '<h3>$1</h3>')
+    .replace(/\*\*(.+?)\*\*/g, '<strong>$1</strong>')
+    .replace(/^\*\s+(.+)/gm, '<li>$1</li>')
+    .replace(/^-\s+(.+)/gm, '<li>$1</li>')
+    .replace(/^(\d+)\.\s+(.+)/gm, '<li><strong>$1.</strong> $2</li>')
+    .replace(/(<li>.*<\/li>\n?)+/g, m => `<ul>${m}</ul>`)
+    .replace(/\n\n/g, '</p><p>')
+    .replace(/^(?!<[hul])/gm, '')
+    .replace(/\n/g, ' ');
+}
+
+function parseArticles(text) {
+  const articles = [];
+  const lines = text.split('\n').filter(l => l.trim());
+  let current = {};
+
+  for (const line of lines) {
+    if (line.includes('TITLE:')) {
+      if (current.title) articles.push(current);
+      current = {};
+      const parts = line.split('|');
+      parts.forEach(p => {
+        if (p.includes('TITLE:')) current.title = p.replace('TITLE:', '').trim();
+        if (p.includes('SUMMARY:')) current.summary = p.replace('SUMMARY:', '').trim();
+        if (p.includes('TAG:')) current.tag = p.replace('TAG:', '').trim();
+      });
+    }
+  }
+  if (current.title) articles.push(current);
+
+  // Fallback: split by numbered items
+  if (articles.length === 0) {
+    const chunks = text.split(/\d+\.\s+/).filter(c => c.trim().length > 20);
+    chunks.slice(0, 4).forEach(chunk => {
+      const lines2 = chunk.split('\n').filter(l => l.trim());
+      articles.push({ title: lines2[0] || chunk.substring(0, 80), summary: lines2[1] || '', tag: 'Analysis' });
+    });
+  }
+
+  return articles.slice(0, 4);
+}
+
+function extractTechPills(text) {
+  const pills = [];
+  const patterns = [
+    /Python|JavaScript|TypeScript|Go|Rust|C\+\+|Java|Swift|Kotlin/gi,
+    /AWS|Azure|GCP|Kubernetes|Docker|Terraform/gi,
+    /TensorFlow|PyTorch|CUDA|Transformer|GPT|BERT|LLM/gi,
+    /React|Next\.js|Node\.js|GraphQL|REST/gi,
+    /PostgreSQL|MySQL|MongoDB|Redis|Kafka/gi
+  ];
+  patterns.forEach(p => {
+    const matches = text.match(p) || [];
+    matches.forEach(m => { if (!pills.includes(m)) pills.push(m); });
+  });
+  return pills.slice(0, 12);
+}
+
+function renderResults(company, overview, competitive, opportunities, tech, articles) {
+  const initial = company.charAt(0).toUpperCase();
+  const articleList = parseArticles(articles);
+  const techPills = extractTechPills(tech);
+
+  const html = `
+    <div class="company-header">
+      <div class="company-avatar">${initial}</div>
+      <div class="company-meta">
+        <div class="company-name">${company}</div>
+        <div class="company-tagline">AI-powered deep analysis — competitive landscape, founder profile, opportunities & more</div>
+        <div class="company-stats">
+          <div class="stat"><span class="stat-val">Live</span><span class="stat-label">Analysis</span></div>
+          <div class="stat"><span class="stat-val">5</span><span class="stat-label">Modules</span></div>
+          <div class="stat"><span class="stat-val">AI</span><span class="stat-label">Powered</span></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="sections-grid">
+      <!-- Overview & Founder -->
+      <div class="card section-full">
+        <div class="card-header">
+          <div class="card-icon icon-cyan">🏢</div>
+          <div class="card-title">Company Overview & Founder Profile</div>
+        </div>
+        <div class="card-content">${formatContent(overview)}</div>
+      </div>
+
+      <!-- Competitive Analysis -->
+      <div class="card section-full">
+        <div class="card-header">
+          <div class="card-icon icon-purple">⚔️</div>
+          <div class="card-title">Competitive Analysis</div>
+        </div>
+        <div class="card-content">${formatContent(competitive)}</div>
+      </div>
+
+      <!-- Market Opportunities -->
+      <div class="card">
+        <div class="card-header">
+          <div class="card-icon icon-green">💡</div>
+          <div class="card-title">Market Opportunities</div>
+        </div>
+        <div class="card-content">${formatContent(opportunities)}</div>
+      </div>
+
+      <!-- Tech Stack -->
+      <div class="card">
+        <div class="card-header">
+          <div class="card-icon icon-amber">🛠️</div>
+          <div class="card-title">Technology Stack</div>
+        </div>
+        <div class="card-content">${formatContent(tech)}</div>
+        ${techPills.length > 0 ? `<div class="tech-pills">${techPills.map((p,i) => `<span class="tech-pill ${i%3===1?'purple':i%3===2?'amber':''}">${p}</span>`).join('')}</div>` : ''}
+      </div>
+
+      <!-- Articles -->
+      <div class="card section-full">
+        <div class="card-header">
+          <div class="card-icon icon-blue">📰</div>
+          <div class="card-title">Community Posts & Articles</div>
+        </div>
+        <div class="article-list">
+          ${articleList.map(a => `
+            <div class="article-item">
+              <div class="article-title">${a.title || 'Analysis Article'}</div>
+              <div class="article-meta">
+                <span>${a.summary ? a.summary.substring(0, 120) + (a.summary.length > 120 ? '...' : '') : ''}</span>
+              </div>
+              <div style="margin-top:6px"><span class="article-tag">${a.tag || 'Insight'}</span></div>
+            </div>
+          `).join('')}
+        </div>
+      </div>
+    </div>
+  `;
+
+  const resultsEl = document.getElementById('results');
+  resultsEl.innerHTML = html;
+  resultsEl.classList.add('active');
+}
+</script>
+</body>
+</html>
